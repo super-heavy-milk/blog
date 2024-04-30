@@ -1,66 +1,44 @@
 <!DOCTYPE html>
-<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Rollback a K8S deployment - Bech Tlog</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="This is a nice &rsquo;lil script for rolling back a k8s deployment.
-Note: this generates the command so you can copy it, it doesn&rsquo;t actually execute it
-#!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &#39;{print $1}&#39; | fzf --prompt &#34;Select a k8s context &#34; ) [[ -z &#34;$ctx&#34; ]] &amp;&amp; echo &#34;No k8s context selected, exiting." />
-	<meta property="og:image" content=""/>
-	<meta property="og:title" content="Rollback a K8S deployment" />
-<meta property="og:description" content="This is a nice &rsquo;lil script for rolling back a k8s deployment.
-Note: this generates the command so you can copy it, it doesn&rsquo;t actually execute it
-#!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &#39;{print $1}&#39; | fzf --prompt &#34;Select a k8s context &#34; ) [[ -z &#34;$ctx&#34; ]] &amp;&amp; echo &#34;No k8s context selected, exiting." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/rollback_k8s_deployment/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-13T10:50:29-04:00" />
-<meta property="article:modified_time" content="2024-03-13T10:50:29-04:00" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Rollback a K8S deployment"/>
-<meta name="twitter:description" content="This is a nice &rsquo;lil script for rolling back a k8s deployment.
-Note: this generates the command so you can copy it, it doesn&rsquo;t actually execute it
-#!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &#39;{print $1}&#39; | fzf --prompt &#34;Select a k8s context &#34; ) [[ -z &#34;$ctx&#34; ]] &amp;&amp; echo &#34;No k8s context selected, exiting."/>
-<script src="http://localhost:1313/js/feather.min.js"></script>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Rollback a K8S deployment</title>
 	
 	
-        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
-	
-
-	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.ac08a4c9714baa859217f92f051deb58df2938ec352b506df655005dcaf98cc0.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/css/dark.726cd11ca6eb7c4f7d48eb420354f814e5c1b94281aaf8fd0511c1319f7f78a4.css"  disabled />
-	
-
-	
-	
-
-	
-	
+	<link rel="stylesheet" href="/css/style.css">
 	
 	
 </head>
 <body>
-        <div class="content"><header>
-	<div class="main">
-		<a href="http://localhost:1313/">Bech Tlog</a>
-	</div>
+	<header>
+	===============<br>
+	== <a href="http://localhost:1313/">Bech Tlog</a> ==<br>
+	===============
+	<div style="float: right;"></div><br>
+	<p>
 	<nav>
-		
-		| <span id="dark-mode-toggle" onclick="toggleTheme()"></span>
-		<script src="http://localhost:1313/js/themetoggle.js"></script>
-		
-	</nav>
+			<a href="/"><b>Start</b></a>.
+			
 </header>
 
-<main>
-	<article>
-		<div class="title">
-			<h1 class="title">Rollback a K8S deployment</h1>
-			<div class="meta">Posted on Mar 13, 2024 <span class="draft-label">DRAFT</span> </div>
-		</div>
-		
+	
+	<main>
+		<article>
+			<h1>Rollback a K8S deployment</h1>
+			<b><time>2024-03-13 10:50:29</time></b>
+		       
+		           <a href="/tags/fzf">fzf</a>
+        	       
+		           <a href="/tags/bash">bash</a>
+        	       
+		           <a href="/tags/k8s">k8s</a>
+        	       
 
-		<section class="body">
-			<p>This is a nice &rsquo;lil script for rolling back a k8s deployment.</p>
+			<div>
+				<p>This is a nice &rsquo;lil script for rolling back a k8s deployment.</p>
 <p><em>Note: this generates the command so you can copy it, it doesn&rsquo;t actually execute it</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
@@ -113,34 +91,37 @@ Note: this generates the command so you can copy it, it doesn&rsquo;t actually e
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># call the function</span>
 </span></span><span style="display:flex;"><span>undo_k8s_deployment
 </span></span></code></pre></div>
-		</section>
-
-		<div class="post-tags">
-			
-			
-			<nav class="nav tags">
-				<ul class="tags">
-					
-					<li><a href="/tags/fzf">fzf</a></li>
-					
-					<li><a href="/tags/bash">bash</a></li>
-					
-					<li><a href="/tags/k8s">k8s</a></li>
-					
-				</ul>
-			</nav>
-			
-			
-		</div>
+			</div>
 		</article>
-</main>
-<footer>
-  <div style="display:flex"></div>
-  <div class="footer-info">
-    2024  <a
-      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
-  </div>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/security_plus_chap_01/">Re-taking the CompTIA Security&#43; Exam</a></li>
+				
+				<li><a href="/posts/java_reduce/">Reducing in Java</a></li>
+				
+				<li><a href="/posts/on_layoffs/">On Layoffs</a></li>
+				
+				<li><a href="/posts/rollback_k8s_deployment/">Rollback a K8S deployment</a></li>
+				
+				<li><a href="/posts/2024_04_13/">First Post</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2024 <a href="http://localhost:1313/"><b>Bech Tlog</b></a>.
+	</p>
 </footer>
-</div>
-    </body>
+
+</body>
 </html>

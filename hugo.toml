@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Bech Tlog'
-theme = 'archie'
+theme = 'smol'
 
 [params]
 	mode="toggle"

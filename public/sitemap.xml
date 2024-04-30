@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-16T10:51:08-04:00</lastmod>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/certification/</loc>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/comptia/</loc>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-03-16T10:51:08-04:00</lastmod>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/security_plus_chap_01/</loc>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security&#43;/</loc>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-04-28T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/java_reduce/</loc>
     <lastmod>2024-03-16T10:51:08-04:00</lastmod>
@@ -30,9 +45,6 @@
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/rollback_k8s_deployment/</loc>
-    <lastmod>2024-03-13T10:50:29-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/work/</loc>
