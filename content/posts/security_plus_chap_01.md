@@ -1039,7 +1039,6 @@ SRTP is used for preventing _replay attacks_
 
 ### File Transfer
 
-
 _File Transfer Protocol_ (FTP)
 
 - good for large amounts of data
@@ -1086,17 +1085,15 @@ _Internet Security Protocol_ (IPsec)
 
 _Secure File Transfer Protocol_ (SFTP)
 
-- extends ***SSH*** to transmit files in an encrypted format
+- extends **_SSH_** to transmit files in an encrypted format
 - uses TCP port 22
 
 _File Transfer Protocol Secure_ (FTPS)
 
-- extends FTP and uses ***TLS*** to encrypt traffic
+- extends FTP and uses **_TLS_** to encrypt traffic
 - uses either TCP port 989 or 990, or uses TLS to encrypt before sending over 20/21
 
-> How to remember these two confusingly named things? 
+> How to remember these two confusingly named things?
 >
 > - starting "S" in SFTP matches the staring "S" in SSH
 > - ending "S" in FTPS matches the ending "S" in TLS
-
-
