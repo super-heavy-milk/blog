@@ -741,7 +741,6 @@ There are a few protocols that are important to know:
 
 - Kerberos
 - NTLM
--
 
 ### Kerberos
 
@@ -860,5 +859,71 @@ SAML defines three roles:
 | Principal        | Typicaly a user, who logs on once.                                                                                            |
 | Identiy Provider | Creates, maintains and manages identiy information from _Principals_.                                                         |
 | Service Provider | Provices services to _Principals_, like a redirection to a login portal or sharing XML between backend systems after a login. |
+
+## Managing Accounts
+
+There's a bunch of crap that I don't want to note down because it's pretty self-explanatory.
+
+## Access Control Models
+
+There are xxx amount of _Access Control Models_ that are in common use.
+
+> Note these are are post-fixed with _Access Control_
+
+| Name            | Abbreviation            |
+| --------------- | ----------------------- |
+| Role-Based      | RBAC                    |
+| Group-Based     | GBAC (I think)          |
+| Rule-Based      | also, confusingly, RBAC |
+| Discretionary   | DAC                     |
+| Mandatory       | MAC                     |
+| Attribute-Based | ABAC                    |
+
+### Role-Based
+
+Assigns access based on the role - a developer would be assigned the access levels associated with the developer role.
+
+This is flexible as users can have more than one role.
+
+#### Group-Based
+
+_Group-Based Access Control_ are a subset of _Role-Based Access Control_ (they are basically the same).
+
+Administrators create groups, and then assign users to the group, like the developer example above.
+
+### Rule-Based
+
+_Rule-Based Access Control_ is not associated with users - a common use case is ACL rules in a firewall.
+
+Additionally, sometimes Rule-Based systems create or modify rules in an automated way in response to events.
+
+### Discretionary
+
+_Discretionary Access Control_ uses a system where every _object_ has an _owner_.
+
+- The _owner_ has **full** control over who else can access the _object_
+
+Microsoft _New Technology File System_ (NTFS) uses DAC.
+
+- Every _object_ has a _Discretionary Access Control List_ (DACL) that specifies who has access to it.
+- This has a security flaw in that Trojan Horses are somewhat easy to inject in this system
+
+### Mandatory
+
+_Mandatory Access Control_ uses security/sensitivity labels to identify _objects_ and _users_.
+
+Below is an example of a label system that an admin might use.
+
+| Security Label | Example  | Example          | Example    |
+| -------------- | -------- | ---------------- | ---------- |
+| Top Secret     | UFOs     | Nuclear Missiles | 007        |
+| Secret         | Research | Legal            |            |
+| Confidential   | Payroll  | Budget           | Healthcare |
+
+### Attribute-Based
+
+_Attribute-Based Access Control_ uses an evaluation approach.
+
+Rules are generated based on values, which makes it suitable for use with _Software Defined Networks_ (SDNs)
 
 
