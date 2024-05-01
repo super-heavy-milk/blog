@@ -69,7 +69,23 @@ Let's see how it goes!
     - [netstat](#netstat)
     - [tracert](#tracert)
     - [arp](#arp)
-  - [Chapter 01 Wrap](#chapter-01-wrap)
+- [Chapter 02: Understanding Identify and Access Management](#chapter-02-understanding-identify-and-access-management)
+  - [Authentication Concepts](#authentication-concepts)
+    - [Group Policy](#group-policy)
+    - [Smart Cards](#smart-cards)
+    - [Key Fobs](#key-fobs)
+    - [HOTP](#hotp)
+    - [TOTP](#totp)
+    - [Biometric Methods](#biometric-methods)
+    - [Multifactor Authentication](#multifactor-authentication)
+  - [Authentication Protocols](#authentication-protocols)
+    - [Kerberos](#kerberos)
+    - [NTLM](#ntlm)
+    - [LDAP](#ldap)
+      - [LDAPS](#ldaps)
+    - [Single Sign-On](#single-sign-on)
+      - [Transitive Trust](#transitive-trust)
+      - [SAML](#saml)
 
 # Chapter 01: Understanding Core Security Goals
 
@@ -500,7 +516,7 @@ Erase the contents of the DNS cache
 
 The `ifconfig` command is used on **_Linux_** systems to show information about _Transmission Control Protocol/Internet Protocol_ (TCP/IP) configuration for a given system.
 
-> The `ifconfig` command has been _depreciated_ on Debian Linux since 2009, but most other Linux distributions still support it.
+> ❗ The `ifconfig` command has been _depreciated_ on Debian Linux since 2009, but most other Linux distributions still support it.
 
 The same commands as `ipconfig` seen above can be used (use a `-` instead of a `/` for the flags) in addition the expanded features below:
 
@@ -574,12 +590,14 @@ Display statistics on a specific protocol _e.g. tcp_
 
 Connections can have a few different states, which `netstat` will show:
 
-- ESTABLISHED _active open connection_
-- LISTEN _waiting for a connection request_
-- CLOSE*WAIT \*waiting for a connection \*\*\_termination*\*\* request\*
-- TIME*WAIT \_waiting for enough time to pass to be sure that a remote system has received a TCP acknowledgement of the connection*
-- SYN*SENT \_waiting for a SYN-ACK response after sending a SYN packet*
-- SYN*RECEIVED \_waiting for the ACK response after getting a SYN-ACK packet*
+| State        | Description                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| ESTABLISHED  | active open connection                                                                                               |
+| LISTEN       | waiting for a connection request                                                                                     |
+| CLOSE_WAIT   | waiting for a connection termination request                                                                         |
+| TIME_WAIT    | waiting for enough time to pass to be sure that a remote system has received a TCP acknowledgement of the connection |
+| SYN_SENT     | waiting for a SYN-ACK response after sending a SYN packet                                                            |
+| SYN_RECEIVED | waiting for the ACK response after getting a SYN-ACK packet                                                          |
 
 ### tracert
 
@@ -615,4 +633,232 @@ Shows the _ARP cache_ on Windows and Mac
 
 Shows the _ARP cache_ for the specified IP address
 
-#
+# Chapter 02: Understanding Identify and Access Management
+
+---
+
+Objectives:
+
+- Impact associated with types of vulnerabilities
+- How to troubleshoot common security issues
+- How to implement secure protocols
+- How to implement secure system design
+- Overview of identity and access management concepts and how to implement them
+- Basic cryptography
+
+## Authentication Concepts
+
+---
+
+Basics:
+
+- _identification_ - username, email address, etc
+- _authentication_ - password, passkey, fingerprint scan, etc
+- _AAA_ - authentication, authorization and accounting.
+
+Authentication can be achieved through:
+
+- Something you know (password)
+- Something you have (smart card)
+- Something you are (fingerprint)
+- Somewhere you are (IP address location)
+- Something you do (gestures on a touchscreen)
+
+### Group Policy
+
+Windows systems use _Group Policy Objects_ (GPOs) to manage multiple users/computers.
+
+Basically, it boils down to giving admins a way to reuse policies by saving them in a _Group Policy Object_ that can be applied to many users or computers within an domain. Examples include:
+
+- password polices
+- firewall rules
+- security/access rules
+- account lockout policies
+
+### Smart Cards
+
+Smart cards use embedded certificates in conjunction with _Public Key Infrastructure_ (PKI) systems to work.
+
+The Department of Defense uses two extra-turbo variants which include a photo ID and other readable info:
+
+- _Common Access Card_ (CAC)
+- _Personal Identity Verification_ (PIV)
+
+### Key Fobs
+
+Sometimes called tokens, these are synced up to a server to provide a _One-Time Password_ (OTP).
+
+Similar to Google Authenticator on your phone, but as a stand-alone device.
+
+### HOTP
+
+Quick reference:
+
+- HMAC - _Hash-based Message Authentication Code_
+- HOTP - _HMAC-based One-Time Password_
+
+How does HOTP work?
+
+1. Generate a character sequence using a _secret key_ and a _incrementing counter_
+1. Run it through HMAC to create a hash of the result
+1. Convert the result into a 6-8 character HOTP value
+
+> ❗ Once used, the HOTP code expires, but it will last _forever_ till it is used.
+
+### TOTP
+
+A _Time-based One-Time Password_ (TOTP) is similar to HOTP, except the _incrementing counter_ is swapped for a _timestamp_ in the generation algorithm.
+
+> ❗ TOTP codes typically expire after 30 seconds.
+
+### Biometric Methods
+
+Secret lair shit
+
+- Fingerprint scanners
+- Retina scanners
+- Iris scanners
+- Voice recognition
+- Facial recognition
+
+Biometric is pretty reliable, but it is not _exact_ and can have errors/false positives.
+
+- False Acceptance Rate (FAR)
+- False Rejection Rate (FRR)
+- Crossover Error Rate (CER) - where the FAR and FRR converge (lower is better)
+
+### Multifactor Authentication
+
+This is just a combination of two or more types of authentication.
+
+- password + key fob
+- retina scan + smart card
+- etc
+
+## Authentication Protocols
+
+There are a few protocols that are important to know:
+
+- Kerberos
+- NTLM
+-
+
+### Kerberos
+
+_Kerberos_ is another name for _Cerberus_, who is the three-headed watchdog of Hades.
+
+- Each head represents birth, life and death, respectively.
+- _Kerberos_ guards the gates to the underworld.
+
+This is actually a pretty good name for this authentication protocol as _Kerberos_ guards the network by making users _mutually_ prove their identity before access is granted.
+
+This is useful to guard against:
+
+- _man-in-the-middle_ attacks
+- _replay_ attacks
+
+Additionally, it has three different "actors" (like the three heads) in the protocol:
+
+| Actor                         | Description                                      |
+| ----------------------------- | ------------------------------------------------ |
+| Client                        | The entity seeking to gain access                |
+| Application Server (AP)       | The service the entity wants to gain access to   |
+| Key Distribution Server (KDS) | A trusted third party that issues access tickets |
+
+The big selling point of _Kerberos_ is the ability to issue tickets that have an expiration, typically 10 hours for a given workday.
+
+Also, _Kerberos_ works on Windows, Mac and Unix systems.
+
+### NTLM
+
+_New Technology LAN Manager_ (NTLM) is a Windows-only authentication protocol.
+
+There are three versions:
+
+| Version | Description                                                                                                                                |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| NTLM    | Simple MD4 has of a user's password. Not recomended as MD4 has been cracked.                                                               |
+| NTLMv2  | Challenge-response protocol that uses a HMAC-MD5 hash based on username, logon domain, password, current time, and any other custom seeds. |
+| NTML2   | Builds on _NTLMv2_ to include mutual authentication between the client and server.                                                         |
+
+Microsoft recommends using the _Negotiate_ security package instead of picking one flavor manually.
+
+- This will try to use _Kerberos_ first, and if not available, try NTLM instead.
+
+### LDAP
+
+_Lightweight Directory Access Protocol_ (LDAP) is an extension of the X.500 standard that is used specific the format and methods used to query "directories".
+
+> In LDAP parlance, a _directory_ is a database of objects used to manage users, computers and other objects. Not to be confused with Linux directories aka folders.
+
+_Active Directory_, a Windows administrative system, is based on LDAP. Additionally, Unix realms use LDAP to identify objects.
+
+What's kind of neat about LDAP is that you can script it.
+
+Take the following LDAP String for the `PeaPod.com` domain:
+
+> `LDAP://CN=Homer,CN=Users,DC=PeaPod,DC=com`
+
+This corresponds to:
+
+| LDAP Chunk | Description                                                              |
+| ---------- | ------------------------------------------------------------------------ |
+| CN=Homer   | CN is short for common name, in this case 'Homer'                        |
+| CN=Users   | CN in this context is referred to as a _container_, in this case 'Users' |
+| DC=PeaPod  | DC is short for _domain component_, in this case 'PeaPod'                |
+| DC=com     | The second _domain component_ in the domain name, 'com'                  |
+
+#### LDAPS
+
+_Lightweight Directory Access Protocol Secure_ (LDAPS) is the same as LDAP, but it has some extra security features.
+
+- When a client connects to a server, a _Transport Layer Security_ (TLS) session is established
+- TLS then encrypts any transmitted data
+
+### Single Sign-On
+
+_Single Sign-On_ (SSO) is a system that allows a user to provide credentials once to access multiple systems.
+
+> This may seem like a security bottleneck, but it actually increases security posture as end users only have to account for one password or access method.
+
+#### Transitive Trust
+
+_Transitive Trust_ is an indirect trust relationship.
+
+If you have three people, Adam, Bill and Cara, you can model it like so:
+
+- Adam trusts Bill
+- Bill trusts Cara
+- Adam trusts Cara (Transitive Trust)
+
+In LDAP, this can be applied to Domains. Take for example this _Parent_ Domain with two _Children_:
+
+- `PeaPod.com` trusts `Blog.PeaPod.com`
+- `PeaPod.com` trusts `Pictures.PeaPod.com`
+
+Each of the _Children_ have _Transitive Trust_ with each other despite not having a direct relationship:
+
+- `Blog.PeaPod.com` trusts `Pictures.PeaPod.com`
+- `Pictures.PeaPod.com` trusts `Blog.PeaPod.com`
+
+```
+     Parent
+       /\
+      /  \
+     /    \
+Child_1   Child_2
+```
+
+#### SAML
+
+_Security Assertion Markup Language_ (SAML) is an XML based format used by SSO in web browsers. It allows a web browser to pass a SAML document back to a server infrastructure so that
+
+SAML defines three roles:
+
+| Role             | Description                                                                                                                   |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Principal        | Typicaly a user, who logs on once.                                                                                            |
+| Identiy Provider | Creates, maintains and manages identiy information from _Principals_.                                                         |
+| Service Provider | Provices services to _Principals_, like a redirection to a login portal or sharing XML between backend systems after a login. |
+
+
