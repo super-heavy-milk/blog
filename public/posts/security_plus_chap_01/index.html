@@ -124,7 +124,38 @@
 <li><a href="#arp">arp</a></li>
 </ul>
 </li>
-<li><a href="#chapter-01-wrap">Chapter 01 Wrap</a></li>
+</ul>
+</li>
+<li><a href="#chapter-02-understanding-identify-and-access-management">Chapter 02: Understanding Identify and Access Management</a>
+<ul>
+<li><a href="#authentication-concepts">Authentication Concepts</a>
+<ul>
+<li><a href="#group-policy">Group Policy</a></li>
+<li><a href="#smart-cards">Smart Cards</a></li>
+<li><a href="#key-fobs">Key Fobs</a></li>
+<li><a href="#hotp">HOTP</a></li>
+<li><a href="#totp">TOTP</a></li>
+<li><a href="#biometric-methods">Biometric Methods</a></li>
+<li><a href="#multifactor-authentication">Multifactor Authentication</a></li>
+</ul>
+</li>
+<li><a href="#authentication-protocols">Authentication Protocols</a>
+<ul>
+<li><a href="#kerberos">Kerberos</a></li>
+<li><a href="#ntlm">NTLM</a></li>
+<li><a href="#ldap">LDAP</a>
+<ul>
+<li><a href="#ldaps">LDAPS</a></li>
+</ul>
+</li>
+<li><a href="#single-sign-on">Single Sign-On</a>
+<ul>
+<li><a href="#transitive-trust">Transitive Trust</a></li>
+<li><a href="#saml">SAML</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -464,7 +495,7 @@ round-trip min/avg/max/stddev = 9.325/17.401/44.315/11.278 ms
 <h3 id="ifconfig">ifconfig</h3>
 <p>The <code>ifconfig</code> command is used on <strong><em>Linux</em></strong> systems to show information about <em>Transmission Control Protocol/Internet Protocol</em> (TCP/IP) configuration for a given system.</p>
 <blockquote>
-<p>The <code>ifconfig</code> command has been <em>depreciated</em> on Debian Linux since 2009, but most other Linux distributions still support it.</p>
+<p>❗ The <code>ifconfig</code> command has been <em>depreciated</em> on Debian Linux since 2009, but most other Linux distributions still support it.</p>
 </blockquote>
 <p>The same commands as <code>ipconfig</code> seen above can be used (use a <code>-</code> instead of a <code>/</code> for the flags) in addition the expanded features below:</p>
 <p><code>ifconfig eth0</code></p>
@@ -506,14 +537,40 @@ round-trip min/avg/max/stddev = 9.325/17.401/44.315/11.278 ms
 <p><code>netstat -p &lt;protocol&gt;</code></p>
 <p>Display statistics on a specific protocol <em>e.g. tcp</em></p>
 <p>Connections can have a few different states, which <code>netstat</code> will show:</p>
-<ul>
-<li>ESTABLISHED <em>active open connection</em></li>
-<li>LISTEN <em>waiting for a connection request</em></li>
-<li>CLOSE<em>WAIT *waiting for a connection **_termination</em>** request*</li>
-<li>TIME<em>WAIT _waiting for enough time to pass to be sure that a remote system has received a TCP acknowledgement of the connection</em></li>
-<li>SYN<em>SENT _waiting for a SYN-ACK response after sending a SYN packet</em></li>
-<li>SYN<em>RECEIVED _waiting for the ACK response after getting a SYN-ACK packet</em></li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESTABLISHED</td>
+<td>active open connection</td>
+</tr>
+<tr>
+<td>LISTEN</td>
+<td>waiting for a connection request</td>
+</tr>
+<tr>
+<td>CLOSE_WAIT</td>
+<td>waiting for a connection termination request</td>
+</tr>
+<tr>
+<td>TIME_WAIT</td>
+<td>waiting for enough time to pass to be sure that a remote system has received a TCP acknowledgement of the connection</td>
+</tr>
+<tr>
+<td>SYN_SENT</td>
+<td>waiting for a SYN-ACK response after sending a SYN packet</td>
+</tr>
+<tr>
+<td>SYN_RECEIVED</td>
+<td>waiting for the ACK response after getting a SYN-ACK packet</td>
+</tr>
+</tbody>
+</table>
 <h3 id="tracert">tracert</h3>
 <p>This lists the routers between two systems.</p>
 <p>Two common variants:</p>
@@ -533,7 +590,538 @@ round-trip min/avg/max/stddev = 9.325/17.401/44.315/11.278 ms
 <p>Shows the <em>ARP cache</em> on Windows and Mac</p>
 <p><code>arp -a &lt;ip-address&gt;</code></p>
 <p>Shows the <em>ARP cache</em> for the specified IP address</p>
-<h1 id="heading"></h1>
+<h1 id="chapter-02-understanding-identify-and-access-management">Chapter 02: Understanding Identify and Access Management</h1>
+<hr>
+<p>Table of Contents:</p>
+<ul>
+<li><a href="#chapter-02-understanding-identify-and-access-management">Chapter 02: Understanding Identify and Access Management</a>
+<ul>
+<li><a href="#authentication-concepts">Authentication Concepts</a>
+<ul>
+<li><a href="#group-policy">Group Policy</a></li>
+<li><a href="#smart-cards">Smart Cards</a></li>
+<li><a href="#key-fobs">Key Fobs</a></li>
+<li><a href="#hotp">HOTP</a></li>
+<li><a href="#totp">TOTP</a></li>
+<li><a href="#biometric-methods">Biometric Methods</a></li>
+<li><a href="#multifactor-authentication">Multifactor Authentication</a></li>
+</ul>
+</li>
+<li><a href="#authentication-protocols">Authentication Protocols</a>
+<ul>
+<li><a href="#kerberos">Kerberos</a></li>
+<li><a href="#ntlm">NTLM</a></li>
+<li><a href="#ldap">LDAP</a>
+<ul>
+<li><a href="#ldaps">LDAPS</a></li>
+</ul>
+</li>
+<li><a href="#single-sign-on">Single Sign-On</a>
+<ul>
+<li><a href="#transitive-trust">Transitive Trust</a></li>
+<li><a href="#saml">SAML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#managing-accounts">Managing Accounts</a></li>
+<li><a href="#access-control-models">Access Control Models</a>
+<ul>
+<li><a href="#role-based">Role-Based</a>
+<ul>
+<li><a href="#group-based">Group-Based</a></li>
+</ul>
+</li>
+<li><a href="#rule-based">Rule-Based</a></li>
+<li><a href="#discretionary">Discretionary</a></li>
+<li><a href="#mandatory">Mandatory</a></li>
+<li><a href="#attribute-based">Attribute-Based</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="authentication-concepts">Authentication Concepts</h2>
+<hr>
+<p>Basics:</p>
+<ul>
+<li><em>identification</em> - username, email address, etc</li>
+<li><em>authentication</em> - password, passkey, fingerprint scan, etc</li>
+<li><em>AAA</em> - authentication, authorization and accounting.</li>
+</ul>
+<p>Authentication can be achieved through:</p>
+<ul>
+<li>Something you know (password)</li>
+<li>Something you have (smart card)</li>
+<li>Something you are (fingerprint)</li>
+<li>Somewhere you are (IP address location)</li>
+<li>Something you do (gestures on a touchscreen)</li>
+</ul>
+<h3 id="group-policy">Group Policy</h3>
+<p>Windows systems use <em>Group Policy Objects</em> (GPOs) to manage multiple users/computers.</p>
+<p>Basically, it boils down to giving admins a way to reuse policies by saving them in a <em>Group Policy Object</em> that can be applied to many users or computers within an domain. Examples include:</p>
+<ul>
+<li>password polices</li>
+<li>firewall rules</li>
+<li>security/access rules</li>
+<li>account lockout policies</li>
+</ul>
+<h3 id="smart-cards">Smart Cards</h3>
+<p>Smart cards use embedded certificates in conjunction with <em>Public Key Infrastructure</em> (PKI) systems to work.</p>
+<p>The Department of Defense uses two extra-turbo variants which include a photo ID and other readable info:</p>
+<ul>
+<li><em>Common Access Card</em> (CAC)</li>
+<li><em>Personal Identity Verification</em> (PIV)</li>
+</ul>
+<h3 id="key-fobs">Key Fobs</h3>
+<p>Sometimes called tokens, these are synced up to a server to provide a <em>One-Time Password</em> (OTP).</p>
+<p>Similar to Google Authenticator on your phone, but as a stand-alone device.</p>
+<h3 id="hotp">HOTP</h3>
+<p>Quick reference:</p>
+<ul>
+<li>HMAC - <em>Hash-based Message Authentication Code</em></li>
+<li>HOTP - <em>HMAC-based One-Time Password</em></li>
+</ul>
+<p>How does HOTP work?</p>
+<ol>
+<li>Generate a character sequence using a <em>secret key</em> and a <em>incrementing counter</em></li>
+<li>Run it through HMAC to create a hash of the result</li>
+<li>Convert the result into a 6-8 character HOTP value</li>
+</ol>
+<blockquote>
+<p>❗ Once used, the HOTP code expires, but it will last <em>forever</em> till it is used.</p>
+</blockquote>
+<h3 id="totp">TOTP</h3>
+<p>A <em>Time-based One-Time Password</em> (TOTP) is similar to HOTP, except the <em>incrementing counter</em> is swapped for a <em>timestamp</em> in the generation algorithm.</p>
+<blockquote>
+<p>❗ TOTP codes typically expire after 30 seconds.</p>
+</blockquote>
+<h3 id="biometric-methods">Biometric Methods</h3>
+<p>Secret lair shit</p>
+<ul>
+<li>Fingerprint scanners</li>
+<li>Retina scanners</li>
+<li>Iris scanners</li>
+<li>Voice recognition</li>
+<li>Facial recognition</li>
+</ul>
+<p>Biometric is pretty reliable, but it is not <em>exact</em> and can have errors/false positives.</p>
+<ul>
+<li>False Acceptance Rate (FAR)</li>
+<li>False Rejection Rate (FRR)</li>
+<li>Crossover Error Rate (CER) - where the FAR and FRR converge (lower is better)</li>
+</ul>
+<h3 id="multifactor-authentication">Multifactor Authentication</h3>
+<p>This is just a combination of two or more types of authentication.</p>
+<ul>
+<li>password + key fob</li>
+<li>retina scan + smart card</li>
+<li>etc</li>
+</ul>
+<h2 id="authentication-protocols">Authentication Protocols</h2>
+<p>There are a few protocols that are important to know:</p>
+<ul>
+<li>Kerberos</li>
+<li>NTLM</li>
+</ul>
+<h3 id="kerberos">Kerberos</h3>
+<p><em>Kerberos</em> is another name for <em>Cerberus</em>, who is the three-headed watchdog of Hades.</p>
+<ul>
+<li>Each head represents birth, life and death, respectively.</li>
+<li><em>Kerberos</em> guards the gates to the underworld.</li>
+</ul>
+<p>This is actually a pretty good name for this authentication protocol as <em>Kerberos</em> guards the network by making users <em>mutually</em> prove their identity before access is granted.</p>
+<p>This is useful to guard against:</p>
+<ul>
+<li><em>man-in-the-middle</em> attacks</li>
+<li><em>replay</em> attacks</li>
+</ul>
+<p>Additionally, it has three different &ldquo;actors&rdquo; (like the three heads) in the protocol:</p>
+<table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client</td>
+<td>The entity seeking to gain access</td>
+</tr>
+<tr>
+<td>Application Server (AP)</td>
+<td>The service the entity wants to gain access to</td>
+</tr>
+<tr>
+<td>Key Distribution Server (KDS)</td>
+<td>A trusted third party that issues access tickets</td>
+</tr>
+</tbody>
+</table>
+<p>The big selling point of <em>Kerberos</em> is the ability to issue tickets that have an expiration, typically 10 hours for a given workday.</p>
+<p>Also, <em>Kerberos</em> works on Windows, Mac and Unix systems.</p>
+<h3 id="ntlm">NTLM</h3>
+<p><em>New Technology LAN Manager</em> (NTLM) is a Windows-only authentication protocol.</p>
+<p>There are three versions:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NTLM</td>
+<td>Simple MD4 has of a user&rsquo;s password. Not recomended as MD4 has been cracked.</td>
+</tr>
+<tr>
+<td>NTLMv2</td>
+<td>Challenge-response protocol that uses a HMAC-MD5 hash based on username, logon domain, password, current time, and any other custom seeds.</td>
+</tr>
+<tr>
+<td>NTML2</td>
+<td>Builds on <em>NTLMv2</em> to include mutual authentication between the client and server.</td>
+</tr>
+</tbody>
+</table>
+<p>Microsoft recommends using the <em>Negotiate</em> security package instead of picking one flavor manually.</p>
+<ul>
+<li>This will try to use <em>Kerberos</em> first, and if not available, try NTLM instead.</li>
+</ul>
+<h3 id="ldap">LDAP</h3>
+<p><em>Lightweight Directory Access Protocol</em> (LDAP) is an extension of the X.500 standard that is used specific the format and methods used to query &ldquo;directories&rdquo;.</p>
+<blockquote>
+<p>In LDAP parlance, a <em>directory</em> is a database of objects used to manage users, computers and other objects. Not to be confused with Linux directories aka folders.</p>
+</blockquote>
+<p><em>Active Directory</em>, a Windows administrative system, is based on LDAP. Additionally, Unix realms use LDAP to identify objects.</p>
+<p>What&rsquo;s kind of neat about LDAP is that you can script it.</p>
+<p>Take the following LDAP String for the <code>PeaPod.com</code> domain:</p>
+<blockquote>
+<p><code>LDAP://CN=Homer,CN=Users,DC=PeaPod,DC=com</code></p>
+</blockquote>
+<p>This corresponds to:</p>
+<table>
+<thead>
+<tr>
+<th>LDAP Chunk</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CN=Homer</td>
+<td>CN is short for common name, in this case &lsquo;Homer&rsquo;</td>
+</tr>
+<tr>
+<td>CN=Users</td>
+<td>CN in this context is referred to as a <em>container</em>, in this case &lsquo;Users&rsquo;</td>
+</tr>
+<tr>
+<td>DC=PeaPod</td>
+<td>DC is short for <em>domain component</em>, in this case &lsquo;PeaPod&rsquo;</td>
+</tr>
+<tr>
+<td>DC=com</td>
+<td>The second <em>domain component</em> in the domain name, &lsquo;com&rsquo;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ldaps">LDAPS</h4>
+<p><em>Lightweight Directory Access Protocol Secure</em> (LDAPS) is the same as LDAP, but it has some extra security features.</p>
+<ul>
+<li>When a client connects to a server, a <em>Transport Layer Security</em> (TLS) session is established</li>
+<li>TLS then encrypts any transmitted data</li>
+</ul>
+<h3 id="single-sign-on">Single Sign-On</h3>
+<p><em>Single Sign-On</em> (SSO) is a system that allows a user to provide credentials once to access multiple systems.</p>
+<blockquote>
+<p>This may seem like a security bottleneck, but it actually increases security posture as end users only have to account for one password or access method.</p>
+</blockquote>
+<h4 id="transitive-trust">Transitive Trust</h4>
+<p><em>Transitive Trust</em> is an indirect trust relationship.</p>
+<p>If you have three people, Adam, Bill and Cara, you can model it like so:</p>
+<ul>
+<li>Adam trusts Bill</li>
+<li>Bill trusts Cara</li>
+<li>Adam trusts Cara (Transitive Trust)</li>
+</ul>
+<p>In LDAP, this can be applied to Domains. Take for example this <em>Parent</em> Domain with two <em>Children</em>:</p>
+<ul>
+<li><code>PeaPod.com</code> trusts <code>Blog.PeaPod.com</code></li>
+<li><code>PeaPod.com</code> trusts <code>Pictures.PeaPod.com</code></li>
+</ul>
+<p>Each of the <em>Children</em> have <em>Transitive Trust</em> with each other despite not having a direct relationship:</p>
+<ul>
+<li><code>Blog.PeaPod.com</code> trusts <code>Pictures.PeaPod.com</code></li>
+<li><code>Pictures.PeaPod.com</code> trusts <code>Blog.PeaPod.com</code></li>
+</ul>
+<pre tabindex="0"><code>     Parent
+       /\
+      /  \
+     /    \
+Child_1   Child_2
+</code></pre><h4 id="saml">SAML</h4>
+<p><em>Security Assertion Markup Language</em> (SAML) is an XML based format used by SSO in web browsers. It allows a web browser to pass a SAML document back to a server infrastructure so that</p>
+<p>SAML defines three roles:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Principal</td>
+<td>Typicaly a user, who logs on once.</td>
+</tr>
+<tr>
+<td>Identiy Provider</td>
+<td>Creates, maintains and manages identiy information from <em>Principals</em>.</td>
+</tr>
+<tr>
+<td>Service Provider</td>
+<td>Provices services to <em>Principals</em>, like a redirection to a login portal or sharing XML between backend systems after a login.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="managing-accounts">Managing Accounts</h2>
+<p>There&rsquo;s a bunch of crap that I don&rsquo;t want to note down because it&rsquo;s pretty self-explanatory.</p>
+<h2 id="access-control-models">Access Control Models</h2>
+<p>There are xxx amount of <em>Access Control Models</em> that are in common use.</p>
+<blockquote>
+<p>Note these are are post-fixed with <em>Access Control</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Role-Based</td>
+<td>RBAC</td>
+</tr>
+<tr>
+<td>Group-Based</td>
+<td>GBAC (I think)</td>
+</tr>
+<tr>
+<td>Rule-Based</td>
+<td>also, confusingly, RBAC</td>
+</tr>
+<tr>
+<td>Discretionary</td>
+<td>DAC</td>
+</tr>
+<tr>
+<td>Mandatory</td>
+<td>MAC</td>
+</tr>
+<tr>
+<td>Attribute-Based</td>
+<td>ABAC</td>
+</tr>
+</tbody>
+</table>
+<h3 id="role-based">Role-Based</h3>
+<p>Assigns access based on the role - a developer would be assigned the access levels associated with the developer role.</p>
+<p>This is flexible as users can have more than one role.</p>
+<h4 id="group-based">Group-Based</h4>
+<p><em>Group-Based Access Control</em> are a subset of <em>Role-Based Access Control</em> (they are basically the same).</p>
+<p>Administrators create groups, and then assign users to the group, like the developer example above.</p>
+<h3 id="rule-based">Rule-Based</h3>
+<p><em>Rule-Based Access Control</em> is not associated with users - a common use case is ACL rules in a firewall.</p>
+<p>Additionally, sometimes Rule-Based systems create or modify rules in an automated way in response to events.</p>
+<h3 id="discretionary">Discretionary</h3>
+<p><em>Discretionary Access Control</em> uses a system where every <em>object</em> has an <em>owner</em>.</p>
+<ul>
+<li>The <em>owner</em> has <strong>full</strong> control over who else can access the <em>object</em></li>
+</ul>
+<p>Microsoft <em>New Technology File System</em> (NTFS) uses DAC.</p>
+<ul>
+<li>Every <em>object</em> has a <em>Discretionary Access Control List</em> (DACL) that specifies who has access to it.</li>
+<li>This has a security flaw in that Trojan Horses are somewhat easy to inject in this system</li>
+</ul>
+<h3 id="mandatory">Mandatory</h3>
+<p><em>Mandatory Access Control</em> uses security/sensitivity labels to identify <em>objects</em> and <em>users</em>.</p>
+<p>Below is an example of a label system that an admin might use.</p>
+<table>
+<thead>
+<tr>
+<th>Security Label</th>
+<th>Example</th>
+<th>Example</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top Secret</td>
+<td>UFOs</td>
+<td>Nuclear Missiles</td>
+<td>007</td>
+</tr>
+<tr>
+<td>Secret</td>
+<td>Research</td>
+<td>Legal</td>
+<td></td>
+</tr>
+<tr>
+<td>Confidential</td>
+<td>Payroll</td>
+<td>Budget</td>
+<td>Healthcare</td>
+</tr>
+</tbody>
+</table>
+<h3 id="attribute-based">Attribute-Based</h3>
+<p><em>Attribute-Based Access Control</em> uses an evaluation approach.</p>
+<p>Rules are generated based on values, which makes it suitable for use with <em>Software Defined Networks</em> (SDNs)</p>
+<h1 id="chapter-03-exploring-network-technologies-and-tools">Chapter 03: Exploring Network Technologies and Tools</h1>
+<hr>
+<p>Stuff in this chapter:</p>
+<!-- raw HTML omitted -->
+<h2 id="basic-networking-protocols">Basic Networking Protocols</h2>
+<hr>
+<p>There are a bunch of protocols to memorize, here we go.</p>
+<h3 id="tcp">TCP</h3>
+<p><em>Transmission Control Protocol</em> is a <strong>guaranteed delivery</strong> protocol.</p>
+<p>It uses a three-way handshake to setup a connection.</p>
+<ul>
+<li>SYN - <em>synchronize</em></li>
+<li>ACK - <em>acknowledge</em></li>
+</ul>
+<pre tabindex="0"><code>Client          Server
++----+          +----+
+|    |   SYN    |    |
+|    | ------&gt;  |    |
+|    |          |    |
+|    | SYN/ACK  |    |
+|    | &lt;------  |    |
+|    |          |    |
+|    |   ACK    |    |
+|    | ------&gt;  |    |
++----+          +----+
+</code></pre><h3 id="udp">UDP</h3>
+<p><em>User Datagram Protocol</em> provides connectionless sessions - no three-way handshake, no guaranteed delivery.</p>
+<p>Commonly used for video/audio, as well as ICMP traffic such as the <code>ping</code> tool.</p>
+<h3 id="ip-1">IP</h3>
+<p><em>Internet Protocol</em> identifies hosts in a TCP/IP network and delivers traffic from one host to another.</p>
+<p>Two formats:</p>
+<ul>
+<li>IPv4 - <code>192.168.1.100</code></li>
+<li>IPv6 - <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></li>
+</ul>
+<h3 id="icmp">ICMP</h3>
+<p><em>Internet Control Message Protocol</em> is used for testing basic connectivity.</p>
+<p>The following tools all use ICMP:</p>
+<ul>
+<li><code>ping</code></li>
+<li><code>pathping</code></li>
+<li><code>tracert</code></li>
+</ul>
+<p>Often Denial of Service (DoS) attacks use ICMP, and many firewalls block ICMP traffic.</p>
+<h3 id="arp-1">ARP</h3>
+<p><em>Address Resolution Protocol</em> resolves IPv4 address to <em>Media Access Control</em> (MAC) address on a local network.</p>
+<p>A common attack associated with this protocol is <em>Arp Poisoning</em></p>
+<h3 id="ndp">NDP</h3>
+<p><em>Neighbor Discovery Protocol</em> is similar to ARP but for IPv6.</p>
+<h2 id="use-cases-for-protocols">Use Cases for Protocols</h2>
+<hr>
+<p>Just rattling off some protocols isn&rsquo;t super useful, so let&rsquo;s look at some use cases.</p>
+<h3 id="voice-and-video">Voice and Video</h3>
+<p>There are a couple of useful protocols that build on UDP in this domain.</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real Time Transport Protocol (RTP)</td>
+<td>Foundational protocol used for audio and video</td>
+</tr>
+<tr>
+<td>Voice over Internet Protocol (VoIP)</td>
+<td>Uses RTP to deliver real time audio</td>
+</tr>
+<tr>
+<td>Secure Real-time Transport Protocol (SRTP)</td>
+<td>Provides encryption, message authenticaion and integrity for RTP</td>
+</tr>
+</tbody>
+</table>
+<p>SRTP is used for preventing <em>replay attacks</em></p>
+<h3 id="file-transfer">File Transfer</h3>
+<p><em>File Transfer Protocol</em> (FTP)</p>
+<ul>
+<li>good for large amounts of data</li>
+<li>transmits in clear text</li>
+<li>has two modes, active and passive</li>
+<li>active uses TCP port 20 for data and 21 for control signals</li>
+<li>passive uses a <strong>random</strong> TCP port for data and 21 for control signals</li>
+<li>passive is also known as PASV</li>
+</ul>
+<p><em>Trivial File Transfer Protocol</em> (TFTP)</p>
+<ul>
+<li>small amounts of data</li>
+<li>uses TCP port 69</li>
+<li>commonly disabled</li>
+</ul>
+<p><em>Secure Shell</em> (SSH)</p>
+<ul>
+<li>encrypts traffic in transit</li>
+<li>can be used to encrypt FTP</li>
+<li>uses TCP port 22</li>
+</ul>
+<p><em>Secure Copy</em> (SCP)</p>
+<ul>
+<li>based on SSH</li>
+<li>copies encrypted files over a network</li>
+</ul>
+<p><em>Secure Sockets Layer</em> (SSL)</p>
+<ul>
+<li>used to secure HTTP traffic as HTTPS</li>
+<li>used to secure SMTP and LDAP as well</li>
+<li>has been compromised - not recommended for use</li>
+</ul>
+<p><em>Transport Layer Security</em> (TLS)</p>
+<ul>
+<li>replacement for SSL</li>
+</ul>
+<p><em>Internet Security Protocol</em> (IPsec)</p>
+<ul>
+<li>used to encrypt IP traffic</li>
+<li>native to IPv6</li>
+<li>works with IPv4</li>
+<li>used to create &ldquo;tunnels&rdquo; for VPN traffic</li>
+<li>uses UDP port 500</li>
+</ul>
+<p><em>Secure File Transfer Protocol</em> (SFTP)</p>
+<ul>
+<li>extends <strong><em>SSH</em></strong> to transmit files in an encrypted format</li>
+<li>uses TCP port 22</li>
+</ul>
+<p><em>File Transfer Protocol Secure</em> (FTPS)</p>
+<ul>
+<li>extends FTP and uses <strong><em>TLS</em></strong> to encrypt traffic</li>
+<li>uses either TCP port 989 or 990, or uses TLS to encrypt before sending over 20/21</li>
+</ul>
+<blockquote>
+<p>How to remember these two confusingly named things?</p>
+<ul>
+<li>starting &ldquo;S&rdquo; in SFTP matches the staring &ldquo;S&rdquo; in SSH</li>
+<li>ending &ldquo;S&rdquo; in FTPS matches the ending &ldquo;S&rdquo; in TLS</li>
+</ul>
+</blockquote>
 
 			</div>
 		</article>
