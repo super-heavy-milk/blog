@@ -637,14 +637,33 @@ Shows the _ARP cache_ for the specified IP address
 
 ---
 
-Objectives:
+Table of Contents:
 
-- Impact associated with types of vulnerabilities
-- How to troubleshoot common security issues
-- How to implement secure protocols
-- How to implement secure system design
-- Overview of identity and access management concepts and how to implement them
-- Basic cryptography
+- [Chapter 02: Understanding Identify and Access Management](#chapter-02-understanding-identify-and-access-management)
+  - [Authentication Concepts](#authentication-concepts)
+    - [Group Policy](#group-policy)
+    - [Smart Cards](#smart-cards)
+    - [Key Fobs](#key-fobs)
+    - [HOTP](#hotp)
+    - [TOTP](#totp)
+    - [Biometric Methods](#biometric-methods)
+    - [Multifactor Authentication](#multifactor-authentication)
+  - [Authentication Protocols](#authentication-protocols)
+    - [Kerberos](#kerberos)
+    - [NTLM](#ntlm)
+    - [LDAP](#ldap)
+      - [LDAPS](#ldaps)
+    - [Single Sign-On](#single-sign-on)
+      - [Transitive Trust](#transitive-trust)
+      - [SAML](#saml)
+  - [Managing Accounts](#managing-accounts)
+  - [Access Control Models](#access-control-models)
+    - [Role-Based](#role-based)
+      - [Group-Based](#group-based)
+    - [Rule-Based](#rule-based)
+    - [Discretionary](#discretionary)
+    - [Mandatory](#mandatory)
+    - [Attribute-Based](#attribute-based)
 
 ## Authentication Concepts
 
@@ -925,5 +944,159 @@ Below is an example of a label system that an admin might use.
 _Attribute-Based Access Control_ uses an evaluation approach.
 
 Rules are generated based on values, which makes it suitable for use with _Software Defined Networks_ (SDNs)
+
+# Chapter 03: Exploring Network Technologies and Tools
+
+---
+
+Stuff in this chapter:
+
+<toc to come>
+
+## Basic Networking Protocols
+
+---
+
+There are a bunch of protocols to memorize, here we go.
+
+### TCP
+
+_Transmission Control Protocol_ is a **guaranteed delivery** protocol.
+
+It uses a three-way handshake to setup a connection.
+
+- SYN - _synchronize_
+- ACK - _acknowledge_
+
+```
+Client          Server
++----+          +----+
+|    |   SYN    |    |
+|    | ------>  |    |
+|    |          |    |
+|    | SYN/ACK  |    |
+|    | <------  |    |
+|    |          |    |
+|    |   ACK    |    |
+|    | ------>  |    |
++----+          +----+
+```
+
+### UDP
+
+_User Datagram Protocol_ provides connectionless sessions - no three-way handshake, no guaranteed delivery.
+
+Commonly used for video/audio, as well as ICMP traffic such as the `ping` tool.
+
+### IP
+
+_Internet Protocol_ identifies hosts in a TCP/IP network and delivers traffic from one host to another.
+
+Two formats:
+
+- IPv4 - `192.168.1.100`
+- IPv6 - `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+
+### ICMP
+
+_Internet Control Message Protocol_ is used for testing basic connectivity.
+
+The following tools all use ICMP:
+
+- `ping`
+- `pathping`
+- `tracert`
+
+Often Denial of Service (DoS) attacks use ICMP, and many firewalls block ICMP traffic.
+
+### ARP
+
+_Address Resolution Protocol_ resolves IPv4 address to _Media Access Control_ (MAC) address on a local network.
+
+A common attack associated with this protocol is _Arp Poisoning_
+
+### NDP
+
+_Neighbor Discovery Protocol_ is similar to ARP but for IPv6.
+
+## Use Cases for Protocols
+
+---
+
+Just rattling off some protocols isn't super useful, so let's look at some use cases.
+
+### Voice and Video
+
+There are a couple of useful protocols that build on UDP in this domain.
+
+| Protocol                                   | Description                                                      |
+| ------------------------------------------ | ---------------------------------------------------------------- |
+| Real Time Transport Protocol (RTP)         | Foundational protocol used for audio and video                   |
+| Voice over Internet Protocol (VoIP)        | Uses RTP to deliver real time audio                              |
+| Secure Real-time Transport Protocol (SRTP) | Provides encryption, message authenticaion and integrity for RTP |
+
+SRTP is used for preventing _replay attacks_
+
+### File Transfer
+
+
+_File Transfer Protocol_ (FTP)
+
+- good for large amounts of data
+- transmits in clear text
+- has two modes, active and passive
+- active uses TCP port 20 for data and 21 for control signals
+- passive uses a **random** TCP port for data and 21 for control signals
+- passive is also known as PASV
+
+_Trivial File Transfer Protocol_ (TFTP)
+
+- small amounts of data
+- uses TCP port 69
+- commonly disabled
+
+_Secure Shell_ (SSH)
+
+- encrypts traffic in transit
+- can be used to encrypt FTP
+- uses TCP port 22
+
+_Secure Copy_ (SCP)
+
+- based on SSH
+- copies encrypted files over a network
+
+_Secure Sockets Layer_ (SSL)
+
+- used to secure HTTP traffic as HTTPS
+- used to secure SMTP and LDAP as well
+- has been compromised - not recommended for use
+
+_Transport Layer Security_ (TLS)
+
+- replacement for SSL
+
+_Internet Security Protocol_ (IPsec)
+
+- used to encrypt IP traffic
+- native to IPv6
+- works with IPv4
+- used to create "tunnels" for VPN traffic
+- uses UDP port 500
+
+_Secure File Transfer Protocol_ (SFTP)
+
+- extends ***SSH*** to transmit files in an encrypted format
+- uses TCP port 22
+
+_File Transfer Protocol Secure_ (FTPS)
+
+- extends FTP and uses ***TLS*** to encrypt traffic
+- uses either TCP port 989 or 990, or uses TLS to encrypt before sending over 20/21
+
+> How to remember these two confusingly named things? 
+>
+> - starting "S" in SFTP matches the staring "S" in SSH
+> - ending "S" in FTPS matches the ending "S" in TLS
 
 
