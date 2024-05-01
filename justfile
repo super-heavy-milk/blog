@@ -1,3 +1,4 @@
+# list recipies
 default:
     @just --list
 

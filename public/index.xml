@@ -6,8 +6,22 @@
     <description>Recent content on Bech Tlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Apr 2024 10:50:29 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 12:32:51 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing Justfile</title>
+      <link>http://localhost:1313/posts/2024-05-01-testing-justfile/</link>
+      <pubDate>Wed, 01 May 2024 12:32:51 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024-05-01-testing-justfile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Custom Stack</title>
+      <link>http://localhost:1313/posts/2024-05-01-custom-stack/</link>
+      <pubDate>Wed, 01 May 2024 12:30:33 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024-05-01-custom-stack/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Re-taking the CompTIA Security&#43; Exam</title>
       <link>http://localhost:1313/posts/security_plus_chap_01/</link>
