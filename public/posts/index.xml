@@ -1,61 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Bech Tlog</title>
+    <title>Posts on Tyler&#39;s Enormous Blog</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Bech Tlog</description>
+    <description>Recent content in Posts on Tyler&#39;s Enormous Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2024 12:32:51 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2024 12:30:33 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Testing Justfile</title>
-      <link>http://localhost:1313/posts/2024-05-01-testing-justfile/</link>
-      <pubDate>Wed, 01 May 2024 12:32:51 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2024-05-01-testing-justfile/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Custom Stack</title>
+      <title>Custom Stack Implementataion</title>
       <link>http://localhost:1313/posts/2024-05-01-custom-stack/</link>
       <pubDate>Wed, 01 May 2024 12:30:33 -0400</pubDate>
       <guid>http://localhost:1313/posts/2024-05-01-custom-stack/</guid>
-      <description></description>
+      <description>Introduction What is a Stack? FIFO LIFO Bags Implementations Array-Based FIFO Stack Introduction I&amp;rsquo;ve been trying to go through some DSA (Data Structures &amp;amp; Algorithms) stuff that I&amp;rsquo;ve forgotten in my time as a digital plummer at my last job.&#xA;It&amp;rsquo;s humbling, to say the least. I suck at it. In my somewhat limited experience, most of Software Engineering is stitching together disparate systems and turning out product features as fast as humanly possible.</description>
     </item>
     <item>
       <title>Re-taking the CompTIA Security&#43; Exam</title>
-      <link>http://localhost:1313/posts/security_plus_chap_01/</link>
+      <link>http://localhost:1313/posts/security-plus-retake/</link>
       <pubDate>Sun, 28 Apr 2024 10:50:29 -0400</pubDate>
-      <guid>http://localhost:1313/posts/security_plus_chap_01/</guid>
+      <guid>http://localhost:1313/posts/security-plus-retake/</guid>
       <description>Overview This is going to be a long one.&#xA;I forgot to renew my CompTIA Security+ certification, so I&amp;rsquo;m re-taking it. What a treat. I&amp;rsquo;m using CompTIA Security+ Get Certified Get Ahead: SY0-501 Study Guide by Darril Gibson because the kindle edition was cheap and recommended. Let&amp;rsquo;s see how it goes!&#xA;Note that I&amp;rsquo;m just jotting stuff down for my own benefit, I&amp;rsquo;m not promising any kind of coherence heh.</description>
     </item>
     <item>
       <title>Reducing in Java</title>
-      <link>http://localhost:1313/posts/java_reduce/</link>
+      <link>http://localhost:1313/posts/java-reduce/</link>
       <pubDate>Sat, 16 Mar 2024 10:51:08 -0400</pubDate>
-      <guid>http://localhost:1313/posts/java_reduce/</guid>
+      <guid>http://localhost:1313/posts/java-reduce/</guid>
       <description>This is a thing that I have to look up and relearn every time I want to do it in Java, so here we go.&#xA;What is a reduce operation?&#xA;Reduce is a way to produce a single result when iterating over a sequence.&#xA;This is technique that comes from functional programming. There are a lot of opinions out there concerning the relative merit of functional vs OOP vs imperative, but this is little article is not one of them.</description>
     </item>
     <item>
       <title>On Layoffs</title>
-      <link>http://localhost:1313/posts/on_layoffs/</link>
+      <link>http://localhost:1313/posts/on-layoffs/</link>
       <pubDate>Wed, 13 Mar 2024 10:50:29 -0400</pubDate>
-      <guid>http://localhost:1313/posts/on_layoffs/</guid>
+      <guid>http://localhost:1313/posts/on-layoffs/</guid>
       <description>Believe it or not, I wasn&amp;rsquo;t always a tech guy.&#xA;In my early 20&amp;rsquo;s, I was obsessed with music, to the point of obtaining a Bachelor&amp;rsquo;s of Music with a concentration in Sound Recording. I wanted desperately to be a cool studio musician/engineer like Steve Albini or Nigel Godrich. This period was roughly in the years 2008-2013; in my youthful naiveté, I was unconcerned with the recession that had rocked my country.</description>
     </item>
     <item>
       <title>Rollback a K8S deployment</title>
-      <link>http://localhost:1313/posts/rollback_k8s_deployment/</link>
+      <link>http://localhost:1313/posts/rollback-k8s-deployment/</link>
       <pubDate>Wed, 13 Mar 2024 10:50:29 -0400</pubDate>
-      <guid>http://localhost:1313/posts/rollback_k8s_deployment/</guid>
+      <guid>http://localhost:1313/posts/rollback-k8s-deployment/</guid>
       <description>This is a nice &amp;rsquo;lil script for rolling back a k8s deployment.&#xA;Note: this generates the command so you can copy it, it doesn&amp;rsquo;t actually execute it&#xA;#!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &amp;#39;{print $1}&amp;#39; | fzf --prompt &amp;#34;Select a k8s context &amp;#34; ) [[ -z &amp;#34;$ctx&amp;#34; ]] &amp;amp;&amp;amp; echo &amp;#34;No k8s context selected, exiting.</description>
-    </item>
-    <item>
-      <title>First Post</title>
-      <link>http://localhost:1313/posts/2024_04_13/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2024_04_13/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

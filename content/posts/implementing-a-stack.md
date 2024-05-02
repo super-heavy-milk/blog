@@ -1,7 +1,7 @@
 ---
-title: "Custom Stack Implementataion"
+title: "Implementing a Stack"
 date: 2024-05-01T12:30:33-04:00
-slug: 2024-05-01-custom-stack
+slug: 2024-05-01-implementing-a-stack
 type: posts
 draft: true
 categories:
@@ -46,10 +46,11 @@ FIFO (Queue) Stacks adhere to this sort of API:
 ```java
 public interface Fifo<Item> {
   void enqueue(Item item); // add an item
-  Item dequeue();          // get the least recently added item and remove  it
-  boolean isEmpty();       // see if the Queue is empty
-  int size();              // number of items in the Queue
+  Item dequeue(); // get the least recently added item and remove  it
+  boolean isEmpty(); // see if the Queue is empty
+  int size(); // number of items in the Queue
 }
+
 ```
 
 The thing to note about the Queue is that:
@@ -70,12 +71,13 @@ LIFO (Pushdown) Stacks adhere to this sort of API:
 
 ```java
 public interface Lifo<Item> {
-  void push(Item item);   // add an item
-  Item pop();             // get the value of the most recently added item and remove it
-  Item peek();            // get the value of the most recently added item
-  boolean isEmpty();      // see if stack is empty
-  int size();             // get stack length
+  void push(Item item); // add an item
+  Item pop(); // get the value of the most recently added item and remove it
+  Item peek(); // get the value of the most recently added item
+  boolean isEmpty(); // see if stack is empty
+  int size(); // get stack length
 }
+
 ```
 
 The thing to note about the Pushdown Stack is that:
@@ -98,9 +100,10 @@ I find Bags to be kinda funny, even cute. It's just a ...uh...bag to throw stuff
 ```java
 public interface Bag<Item> {
   void add(Item item); // add an item
-  void isEmpty();      // see if the bag is empty
-  int size();          // number of items in the bag
+  void isEmpty(); // see if the bag is empty
+  int size(); // number of items in the bag
 }
+
 ```
 
 # Implementations
@@ -123,6 +126,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class LifoStack<Item> implements Iterable<Item> {
+
   private static final int CAP = 8;
   private Item[] items;
   private int count;
@@ -200,6 +204,7 @@ public class LifoStack<Item> implements Iterable<Item> {
   // Since this is is a "pancake stack",
   // iteration will start from the "top" and count down
   private class Reverse implements Iterator<Item> {
+
     // This provides a way to "count down" without
     // effecting the actual count
     private int innerCount;
@@ -246,6 +251,7 @@ public class LifoStack<Item> implements Iterable<Item> {
     }
   }
 }
+
 ```
 
 One thing a keen reader may notice is that the code for `grow()` and `shrink()` is very similar, and could be refactored to cut down on some structural duplication.

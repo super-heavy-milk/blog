@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Money on Bech Tlog</title>
+    <title>Money on Tyler&#39;s Enormous Blog</title>
     <link>http://localhost:1313/tags/money/</link>
-    <description>Recent content in Money on Bech Tlog</description>
+    <description>Recent content in Money on Tyler&#39;s Enormous Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Mar 2024 10:50:29 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/money/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On Layoffs</title>
-      <link>http://localhost:1313/posts/on_layoffs/</link>
+      <link>http://localhost:1313/posts/on-layoffs/</link>
       <pubDate>Wed, 13 Mar 2024 10:50:29 -0400</pubDate>
-      <guid>http://localhost:1313/posts/on_layoffs/</guid>
+      <guid>http://localhost:1313/posts/on-layoffs/</guid>
       <description>Believe it or not, I wasn&amp;rsquo;t always a tech guy.&#xA;In my early 20&amp;rsquo;s, I was obsessed with music, to the point of obtaining a Bachelor&amp;rsquo;s of Music with a concentration in Sound Recording. I wanted desperately to be a cool studio musician/engineer like Steve Albini or Nigel Godrich. This period was roughly in the years 2008-2013; in my youthful naiveté, I was unconcerned with the recession that had rocked my country.</description>
     </item>
   </channel>

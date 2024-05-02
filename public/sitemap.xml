@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/default/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/default/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2024-05-01-testing-justfile/</loc>
-    <lastmod>2024-05-01T12:32:51-04:00</lastmod>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/2024-05-01-custom-stack/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/dsa/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/java/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-05-01T12:30:33-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-05-01T12:30:33-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/certification/</loc>
@@ -32,13 +32,13 @@
     <loc>http://localhost:1313/tags/comptia/</loc>
     <lastmod>2024-04-28T10:50:29-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/security_plus_chap_01/</loc>
+    <loc>http://localhost:1313/posts/security-plus-retake/</loc>
     <lastmod>2024-04-28T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/security&#43;/</loc>
     <lastmod>2024-04-28T10:50:29-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/java_reduce/</loc>
+    <loc>http://localhost:1313/posts/java-reduce/</loc>
     <lastmod>2024-03-16T10:51:08-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/bash/</loc>
@@ -56,17 +56,13 @@
     <loc>http://localhost:1313/tags/musings/</loc>
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/on_layoffs/</loc>
+    <loc>http://localhost:1313/posts/on-layoffs/</loc>
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/rollback_k8s_deployment/</loc>
+    <loc>http://localhost:1313/posts/rollback-k8s-deployment/</loc>
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/work/</loc>
     <lastmod>2024-03-13T10:50:29-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/2024_04_13/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/yolo/</loc>
   </url>
 </urlset>
