@@ -1,15 +1,16 @@
 ---
-title: 'Rollback a K8S deployment'
+title: "Rollback a K8S deployment"
 date: 2024-02-20T10:50:29-04:00
 slug: 2024-02-20-rollback-a-k8s-deployment
+summary: "This is a nice 'lil script for rolling back a kubernetes deployment."
 draft: true
 categories:
-- programming
-- devops
+  - programming
+  - devops
 tags:
-- fzf
-- bash
-- k8s
+  - fzf
+  - bash
+  - k8s
 ---
 
 This is a nice 'lil script for rolling back a k8s deployment.
@@ -68,5 +69,3 @@ function undo_k8s_deployment() {
 # call the function
 undo_k8s_deployment
 ```
-
-

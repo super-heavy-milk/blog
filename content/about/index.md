@@ -8,4 +8,4 @@ I'm Tyler Lawton, a software engineer living and working in Pittsburgh, PA.
 
 I recently got engaged, have two cats, and I'm trying to figure it out as I go along.
 
-Send me an email at me@tylerlawton.dev if you want to get in touch!
+Send me an email at me@tylerlawton.dev if you want to get in touch.

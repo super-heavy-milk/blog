@@ -1,8 +1,15 @@
 ---
 title: "Re-taking the CompTIA Security+ Exam"
 date: 2024-04-28T10:50:29-04:00
+slug: 2024-04-28-re-taking-the-comptia-security-plus
+summary: "Kill me."
 draft: true
-tags: ["CompTIA", "Security+", "Certification"]
+categories:
+  - notes
+tags:
+  - "CompTIA"
+  - "Security+"
+  - "Certification"
 ---
 
 # Overview
