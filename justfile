@@ -6,9 +6,9 @@ default:
 dev:
     hugo server -D 
 
-# create a new blog entry e.g. 'posts/my-post.md'
-new entry:
-    hugo new content "{{ justfile_directory() }}/content/{{ entry }}"
+# create a new blog entry e.g. 'my-post.md'
+blog entry:
+    hugo new content "{{ justfile_directory() }}/content/posts/{{ entry }}"
 
 # run all the pre-commit hooks
 lint:
