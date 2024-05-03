@@ -6,8 +6,15 @@
     <description>Recent content on Tyler&#39;s Enormous Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2024 12:30:33 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2024 09:07:30 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Fri, 03 May 2024 09:07:30 -0400</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>I&amp;rsquo;m Tyler Lawton, a software engineer living and working in Pittsburgh, PA.&#xA;I recently got engaged, have two cats, and I&amp;rsquo;m trying to figure it out as I go along.&#xA;Send me an email at me@tylerlawton.dev if you want to get in touch!</description>
+    </item>
     <item>
       <title>Implementing a Stack</title>
       <link>http://localhost:1313/posts/2024-05-01-implementing-a-stack/</link>
@@ -23,11 +30,11 @@
       <description>Overview This is going to be a long one.&#xA;I forgot to renew my CompTIA Security+ certification, so I&amp;rsquo;m re-taking it. What a treat. I&amp;rsquo;m using CompTIA Security+ Get Certified Get Ahead: SY0-501 Study Guide by Darril Gibson because the kindle edition was cheap and recommended. Let&amp;rsquo;s see how it goes!&#xA;Note that I&amp;rsquo;m just jotting stuff down for my own benefit, I&amp;rsquo;m not promising any kind of coherence heh.</description>
     </item>
     <item>
-      <title>Reducing in Java</title>
-      <link>http://localhost:1313/posts/java-reduce/</link>
+      <title>Imperative vs Declarative</title>
+      <link>http://localhost:1313/posts/2024-03-16-imperative-vs-declarative/</link>
       <pubDate>Sat, 16 Mar 2024 10:51:08 -0400</pubDate>
-      <guid>http://localhost:1313/posts/java-reduce/</guid>
-      <description>This is a thing that I have to look up and relearn every time I want to do it in Java, so here we go.&#xA;What is a reduce operation?&#xA;Reduce is a way to produce a single result when iterating over a sequence.&#xA;This is technique that comes from functional programming. There are a lot of opinions out there concerning the relative merit of functional vs OOP vs imperative, but this is little article is not one of them.</description>
+      <guid>http://localhost:1313/posts/2024-03-16-imperative-vs-declarative/</guid>
+      <description>Short post today, simple premise:&#xA;Try to be declarative if possible.&#xA;Small aside:&#xA;One of the reasons I started writing about programming is that most of the tech blogs I enjoy tend to provide examples in &amp;ldquo;cool&amp;rdquo; languages - Rust, Go, Lisp, etc. However, most of us are stuck writing in Enterprise Approved™ languages, so I thought it would be neat to write about the mostly uncool languages I&amp;rsquo;m familiar with *cough Java*.</description>
     </item>
     <item>
       <title>On Layoffs</title>
@@ -38,9 +45,9 @@
     </item>
     <item>
       <title>Rollback a K8S deployment</title>
-      <link>http://localhost:1313/posts/rollback-k8s-deployment/</link>
-      <pubDate>Wed, 13 Mar 2024 10:50:29 -0400</pubDate>
-      <guid>http://localhost:1313/posts/rollback-k8s-deployment/</guid>
+      <link>http://localhost:1313/posts/2024-02-20-rollback-a-k8s-deployment/</link>
+      <pubDate>Tue, 20 Feb 2024 10:50:29 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2024-02-20-rollback-a-k8s-deployment/</guid>
       <description>This is a nice &amp;rsquo;lil script for rolling back a k8s deployment.&#xA;Note: this generates the command so you can copy it, it doesn&amp;rsquo;t actually execute it&#xA;#!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &amp;#39;{print $1}&amp;#39; | fzf --prompt &amp;#34;Select a k8s context &amp;#34; ) [[ -z &amp;#34;$ctx&amp;#34; ]] &amp;amp;&amp;amp; echo &amp;#34;No k8s context selected, exiting.</description>
     </item>
   </channel>

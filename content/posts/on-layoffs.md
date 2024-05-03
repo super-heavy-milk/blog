@@ -20,7 +20,7 @@ Alas, like many who chased the music dragon, it did not work out for me. My own 
 
 At this point in the story, it's the mid-2010s. 
 
-The [learn to code](https://en.wikipedia.org/wiki/Learn_to_Code) meme hasn't yet calcified into a bitter joke, and has fully saturated the cultural collective unconscious. I'm just the right combination of curious, desperate and impressionable to get caught up in the undertow and so I resign myself to learning the drudgery of _feeding a computer cryptic instructions till it does things_. Plus, it seems like that's where all the other failed creative types are ending up, so I might as well hop on the bandwagon.
+The [learn to code](https://en.wikipedia.org/wiki/Learn_to_Code) meme hasn't yet calcified into a bitter joke, and has fully saturated the cultural collective unconscious. I'm just the right combination of curious, desperate and impressionable to get caught up in the undertow and so I resign myself to learning the drudgery of _feeding a computer cryptic instructions till it does things_. Plus, it seems like that's where all the other failed creative types are ending up, so I might as well try to catch the wave.
 
 This turns out to be lengthy process for me, involving community college, learning calculus in my mid-20s, grad school, and IBM Mainframes. 
 
@@ -35,7 +35,7 @@ This is quite the upheaval. Other things have been challenging for me, but they 
 
 A year, then two go by. 
 
-Imposter syndrome, something I'm very familiar with from my time as a musician, plagues me with a dogged determination throughout this phase _(and still does, if I'm honest)_. I don't let it get me down though, as I finally have the thing that I've been grinding for years in hopes of achieving: _real, actual experience as a Software Engineer™_. 
+Impostor syndrome, something I'm familiar with from my time as a musician, plagues me with a dogged determination throughout this phase _(and still does, if I'm honest)_. I don't let it get me down though, as I finally have the thing that I've been grinding for years in hopes of achieving: _real experience as a Software Engineer™_. 
 
 I've found my golden ticket. No more worries about retirement, affording care for ageing parents, dodging questions about my career _(or lack thereof)_ on dates, etc. I even have begun to enjoy this new gig. It's interesting, and empowering in a way that I never experienced in other pursuits.
 
@@ -59,7 +59,7 @@ Did you catch that?
 
 > _...an offshore dev costs significantly less than I do._
 
-At the end of the day, I was just an expense. 
+I was too expensive. 
 
 My hard-earned knowledge and skills were powerless in the face of a red cell on a spreadsheet somewhere.
 

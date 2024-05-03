@@ -6,6 +6,14 @@ default:
 dev:
     hugo server -D 
 
-# create a new blog entry e.g. 'my-post.md'
+# create a new blog entry e.g. 'posts/my-post.md'
 new entry:
-    hugo new content "{{ justfile_directory() }}/content/posts/{{ entry }}"
+    hugo new content "{{ justfile_directory() }}/content/{{ entry }}"
+
+# run all the pre-commit hooks
+lint:
+    pre-commit run --all-files --hook-stage manual
+
+# format the justfile
+fmt-justfile:
+    just --fmt --unstable

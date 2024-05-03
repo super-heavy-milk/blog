@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style type=text/css>body{font-family:monospace;}</style>
-	<title>Tyler&#39;s Enormous Blog</title>
+	<title></title>
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
@@ -23,6 +23,14 @@
 	<nav>
 			<a href="/"><b>Start</b></a>.
 			
+			
+			<a href="/about/"><b>About</b></a>.
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+	</nav>
+	</p>
+	
 </header>
 
 	
@@ -69,16 +77,18 @@ Note that I&rsquo;m just jotting stuff down for my own benefit, I&rsquo;m not pr
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/java-reduce/">Reducing in Java</a></h1>
+	<h1><a href="http://localhost:1313/posts/2024-03-16-imperative-vs-declarative/">Imperative vs Declarative</a></h1>
 	<b><time>2024-03-16 10:51:08</time></b>
 	
+	<a href="/tags/java">java</a>
+	
 	<div>
-		This is a thing that I have to look up and relearn every time I want to do it in Java, so here we go.
-What is a reduce operation?
-Reduce is a way to produce a single result when iterating over a sequence.
-This is technique that comes from functional programming. There are a lot of opinions out there concerning the relative merit of functional vs OOP vs imperative, but this is little article is not one of them.
+		Short post today, simple premise:
+Try to be declarative if possible.
+Small aside:
+One of the reasons I started writing about programming is that most of the tech blogs I enjoy tend to provide examples in &ldquo;cool&rdquo; languages - Rust, Go, Lisp, etc. However, most of us are stuck writing in Enterprise Approved™ languages, so I thought it would be neat to write about the mostly uncool languages I&rsquo;m familiar with *cough Java*.
 		
-			<a href="http://localhost:1313/posts/java-reduce/">Read more...</a>
+			<a href="http://localhost:1313/posts/2024-03-16-imperative-vs-declarative/">Read more...</a>
 		
 	</div>
 </article>
@@ -105,8 +115,8 @@ In my early 20&rsquo;s, I was obsessed with music, to the point of obtaining a B
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/rollback-k8s-deployment/">Rollback a K8S deployment</a></h1>
-	<b><time>2024-03-13 10:50:29</time></b>
+	<h1><a href="http://localhost:1313/posts/2024-02-20-rollback-a-k8s-deployment/">Rollback a K8S deployment</a></h1>
+	<b><time>2024-02-20 10:50:29</time></b>
 	
 	<a href="/tags/fzf">fzf</a>
 	
@@ -119,7 +129,7 @@ In my early 20&rsquo;s, I was obsessed with music, to the point of obtaining a B
 Note: this generates the command so you can copy it, it doesn&rsquo;t actually execute it
 #!/usr/bin/env bash function undo_k8s_deployment() { local ctx name_space k8s_deployment k8s_revision command # choose a context ctx=$( kubectl config get-contexts -o name | awk &#39;{print $1}&#39; | fzf --prompt &#34;Select a k8s context &#34; ) [[ -z &#34;$ctx&#34; ]] &amp;&amp; echo &#34;No k8s context selected, exiting.
 		
-			<a href="http://localhost:1313/posts/rollback-k8s-deployment/">Read more...</a>
+			<a href="http://localhost:1313/posts/2024-02-20-rollback-a-k8s-deployment/">Read more...</a>
 		
 	</div>
 </article>

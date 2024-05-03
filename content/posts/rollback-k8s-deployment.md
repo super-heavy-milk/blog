@@ -1,8 +1,15 @@
 ---
 title: 'Rollback a K8S deployment'
-date: 2024-03-13T10:50:29-04:00
+date: 2024-02-20T10:50:29-04:00
+slug: 2024-02-20-rollback-a-k8s-deployment
 draft: true
-tags: ["fzf", "bash", "k8s"]
+categories:
+- programming
+- devops
+tags:
+- fzf
+- bash
+- k8s
 ---
 
 This is a nice 'lil script for rolling back a k8s deployment.
