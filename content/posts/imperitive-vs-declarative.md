@@ -36,8 +36,8 @@ public class Demo {
     );
 
     /*
-      Our goal today is to: 
-        - Find a name in a list 
+      Our goal today is to:
+        - Find a name in a list
         - Print it if it exists
 
       Let's try two different styles to achieve this.

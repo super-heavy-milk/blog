@@ -21,7 +21,7 @@ The [.gitignore](https://git-scm.com/docs/gitignore) file is widely used and you
 
 I like to use this [repo](https://github.com/github/gitignore) for getting ideas or templates for specific repositories or projects.
 
-What's not commonly known that's useful is that you can have a _global_ `.gitignore` in the `~/.config/git/ignore` file _(note the lack of extension)_. 
+What's not commonly known that's useful is that you can have a _global_ `.gitignore` in the `~/.config/git/ignore` file _(note the lack of extension)_.
 
 > Great for common editor, OS, library, etc settings.
 
@@ -175,7 +175,3 @@ package-lock.json
 bower_components
 
 ```
-
-
-
-

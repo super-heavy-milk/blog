@@ -7,7 +7,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        types: [markdown, yaml, json]
+        types_or: [markdown, yaml, json]
   #
   # utility checks
   #
@@ -17,9 +17,9 @@ repos:
       - id: check-yaml
       - id: check-toml
       - id: end-of-file-fixer
-        types: [markdown, yaml, json, toml]
+        types_or: [markdown, yaml, json, toml]
       - id: trailing-whitespace
-        types: [markdown, yaml, json, toml]
+        types_or: [markdown, yaml, json, toml]
       - id: detect-private-key
   #
   # spelling
@@ -28,7 +28,8 @@ repos:
     rev: v2.2.4
     hooks:
       - id: codespell
-        types: [markdown, yaml, json]
+        types_or: [markdown, yaml, json]
+        stages: [manual]
   #
   # lint gh action files
   #
@@ -43,5 +44,5 @@ repos:
     rev: 0.14.0
     hooks:
       - id: proselint
-        types: [markdown]
+        types_or: [markdown, text]
         stages: [manual]

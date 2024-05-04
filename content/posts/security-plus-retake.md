@@ -114,13 +114,13 @@ Confidentiality prevents the unauthorized disclosure of data.
 
 ### Encryption
 
-Encryption is just fucking up you data in a way that only you can un-fuck it.
+Encryption is scrambling your data in a way that only you can unscramble it.
 
 - It's used for covering up _Personally Identifiable Information_ (PII)
 
 ### Access Controls
 
-So, like, uh - this is all about control and power and shit.
+So, like, uh - this is all about control and power.
 
 - _Identification_ - User names, claiming a user name, etc.
 - _Authentication_ - How users prove their identify. Passwords, fingerprints, etc.
@@ -209,7 +209,7 @@ Availability can also be affected by how up-to-date your software is. So keep it
 
 ### Cost
 
-Note that all this shit is expensive. Also, encrypting and duplicating data takes up a huge amount of disk space and compute. So try to get away with the least amount of it as possible.
+Note that all this stuff is expensive. Also, encrypting and duplicating data takes up a huge amount of disk space and compute. So try to get away with the least amount of it as possible.
 
 ## Risk Concepts
 
@@ -275,7 +275,7 @@ This is a mix of assessments, people training, and human controlled system confi
 
 ### Physical Controls
 
-Shit you can touch.
+Stuff you can touch.
 
 - Locks
 - Doors
@@ -802,7 +802,7 @@ There are three versions:
 
 | Version | Description                                                                                                                                |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| NTLM    | Simple MD4 has of a user's password. Not recomended as MD4 has been cracked.                                                               |
+| NTLM    | Simple MD4 has of a user's password. Not recommended as MD4 has been cracked.                                                              |
 | NTLMv2  | Challenge-response protocol that uses a HMAC-MD5 hash based on username, logon domain, password, current time, and any other custom seeds. |
 | NTML2   | Builds on _NTLMv2_ to include mutual authentication between the client and server.                                                         |
 
@@ -880,11 +880,11 @@ _Security Assertion Markup Language_ (SAML) is an XML based format used by SSO i
 
 SAML defines three roles:
 
-| Role             | Description                                                                                                                   |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Principal        | Typicaly a user, who logs on once.                                                                                            |
-| Identiy Provider | Creates, maintains and manages identiy information from _Principals_.                                                         |
-| Service Provider | Provices services to _Principals_, like a redirection to a login portal or sharing XML between backend systems after a login. |
+| Role              | Description                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Principal         | Typically a user, who logs on once.                                                                                           |
+| Identity Provider | Creates, maintains and manages identiy information from _Principals_.                                                         |
+| Service Provider  | Provides services to _Principals_, like a redirection to a login portal or sharing XML between backend systems after a login. |
 
 ## Managing Accounts
 
