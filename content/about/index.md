@@ -6,20 +6,28 @@ draft: true
 
 I'm Tyler Lawton, a software engineer living and working in Pittsburgh, PA.
 
-Work tldr:
+## Work
 
-- I worked on an Enterprise Search Platform for the past 4.5 years
-- I was what people call a _Fullstack Software Engineer_
+I worked on an E-commerce Search Platform for the past 4.5 years
 
-Life tldr:
+Prior to that, I worked in restaurants, cut grass and moonlighted as a sound guy.
 
-- I recently got engaged
-- I have two cats
+See my CV _(pending)_ for more details.
 
-Interests tldr:
+## Life
 
-- Avid reader _(mostly pulpy sci-fi/fantasy with a smattering of "literature")_
-- Lifelong musician, mostly upright bass but other stuff too
-- Oscillate between mountain biking, rock claiming and weight lifting
+I recently got engaged to a lovely, amazing woman.
+
+We have two cats, Poof and Almy (Alma Jean).
+
+## Hobbies
+
+Avid reader _(mostly pulpy sci-fi/fantasy with a smattering of "literature")_.
+
+Lifelong musician - mostly upright bass but other stuff too.
+
+I oscillate between mountain biking, rock claiming and weight lifting when I want to move.
+
+## Contact
 
 Send me an email at me@tylerlawton.dev if you want to get in touch.

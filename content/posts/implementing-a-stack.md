@@ -4,7 +4,7 @@ date: 2024-05-01T12:30:33-04:00
 slug: 2024-05-01-implementing-a-stack
 summary: "Building a stack is a great way to learn about how you can create a useful data structure from low level building blocks."
 type: posts
-draft: true
+draft: false
 categories:
   - programming
 tags:

@@ -4,7 +4,7 @@ date: 2024-05-03T16:46:44-04:00
 slug: 2024-05-03-git-tricks
 type: posts
 summary: "Things I've learned and don't want to forget about Git."
-draft: true
+draft: false
 categories:
   - programming
 tags:
