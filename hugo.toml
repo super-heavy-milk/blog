@@ -38,7 +38,8 @@ sectionPagesMenu = 'main'
 
 [markup]
   [markup.highlight]
-       # style = 'perldoc'
-       style = 'rose-pine-dawn'
+       style = 'perldoc'
+       # style = 'catppuccin-latte'
+       # style = 'rose-pine-dawn'
        # style = 'witchhazel'
        # style = 'tango'
