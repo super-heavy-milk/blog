@@ -18,10 +18,10 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
 
+  /* from https://css-pattern.com/ */
   --s: 34px; /* control the size (the circle diameter) */
   --c1: #ecbe13;
   --c2: #309292;
-
   --_g: radial-gradient(calc(var(--s) / 2), var(--c1) 97%, #0000);
   background:
     var(--_g),

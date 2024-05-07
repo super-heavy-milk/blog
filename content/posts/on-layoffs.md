@@ -13,9 +13,9 @@ tags:
 
 Believe it or not, I wasn't always a _tech guy_.
 
-In my early 20's, I was obsessed with music, to the point of obtaining a _Bachelor's of Music_ with a concentration in _Sound Recording_. I wanted desperately to be a cool studio musician/engineer like [Steve Albini](https://en.wikipedia.org/wiki/Steve_Albini) or [Nigel Godrich](https://en.wikipedia.org/wiki/Nigel_Godrich). This period was roughly in the years 2008-2013; in my youthful naiveté, I was unconcerned with the recession that had rocked my country. It also helped that I had no money or career to lose, so I simply followed my passion.
+In my early 20s, I was obsessed with music, to the point of obtaining a _Bachelor's of Music_ with a concentration in _Sound Recording_. I wanted desperately to be a cool studio musician/engineer like [Steve Albini](https://en.wikipedia.org/wiki/Steve_Albini) or [Nigel Godrich](https://en.wikipedia.org/wiki/Nigel_Godrich). This period was roughly in the years 2008-2013; in my youthful naiveté, I was unconcerned with the recession that had rocked my country. It also helped that I had no money or career to lose, so I simply followed my passion.
 
-Alas, like many who chased the music dragon, it did not work out for me. My own goals began to change in my mid-20's as well. The "starving artist" lifestyle that had once seemed so _vital_ and _real_ had begun to feel more like _poverty_ and _total lack of upwards mobility_. My "side gig" of waiting tables had turned into my only reliable source of income. At a certain point, I had to make a difficult decision: _what next?_
+Alas, like many who chased the music dragon, it did not work out for me. My own goals began to change in my mid-20s as well. The "starving artist" lifestyle that had once seemed so _vital_ and _real_ had begun to feel more like _poverty_ and _total lack of upwards mobility_. My "side gig" of waiting tables had turned into my only reliable source of income. At a certain point, I had to make a difficult decision: _what next?_
 
 ## Fish In A Barrel
 
@@ -23,15 +23,15 @@ Alas, like many who chased the music dragon, it did not work out for me. My own 
 >
 > _Teach a man to code and he'll... uh... code for his or family or something._
 
-At this point in the story, it's the mid-2010s.
+Fast forward a year or two; it's now the mid-2010s.
 
-The [learn to code](https://en.wikipedia.org/wiki/Learn_to_Code) meme hasn't yet calcified into a bitter joke, and has fully saturated the cultural collective unconscious. I'm just the right combination of curious, desperate and impressionable to get caught up in the undertow and so I resign myself to learning the drudgery of _feeding a computer cryptic instructions till it does things_. Plus, it seems like that's where all the other failed creative types are ending up, so I might as well try to catch the wave.
+The [learn to code](https://en.wikipedia.org/wiki/Learn_to_Code) meme hasn't yet calcified into a bitter joke. Conversely, it has fully saturated the cultural collective unconscious. I'm just the right combination of curious, idealistic and desperate to get caught up in the undertow. I resign myself to learning the drudgery of _giving a computer cryptic instructions till it does stuff_. Additionally, it seems like that's where all the other failed creative types have ended up, so I might as well try to catch the wave.
 
 This turns out to be lengthy process for me, involving community college, learning calculus in my mid-20s, grad school, and IBM Mainframes.
 
 > _Yeah... IBM Mainframes. I was convinced that was going to be my edge._
 
-Eventually though, it pays off, and in January 2020, I end up landing a gig at a Large Corporation™ working on an _enterprise™ e-commerce search platform_.
+Eventually though, it pays off, and in January 2020, I end up landing a gig at a Large Corporation working on an _Enterprise™ E-Commerce Search Platform_.
 
 For the first time in my life, I'm challenged by a _job_.
 

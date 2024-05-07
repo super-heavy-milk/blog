@@ -2,6 +2,7 @@
 title: "Gradle Init Scripts"
 date: 2024-05-06T14:40:39-04:00
 slug: 2024-05-06-gradle-init-scripts
+summary: "I should stop trying to do Unix-y stuff with Java but whatever."
 type: posts
 draft: true
 categories:
@@ -45,5 +46,5 @@ allprojects {
 Note the use of `allprojects`.
 
 - If spotless exists in a given project, it will apply the Spotless configuration:
-- - after the code has successfully compiled
-- - before any other configured tasks
+  - after the code has successfully compiled
+  - before any other configured tasks

@@ -255,6 +255,6 @@ public class LifoStack<Item> implements Iterable<Item> {
 
 ```
 
-One thing a keen reader may notice is that the code for `grow()` and `shrink()` is very similar, and could be refactored to cut down on some structural duplication.
+One thing a keen reader may notice is that the code for `grow()` and `shrink()` is similar, and could be refactored to cut down on some structural duplication.
 
 I prefer to do it this way as all the conditions for when a halving/doubling operation is necessary are completely local to the enclosing method.
