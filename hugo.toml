@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = "Tyler's Enormous Blog"
+title = "Tyler Lawton"
 theme = 'blank'
 sectionPagesMenu = 'main'
 # copyright = 'copyright text'
