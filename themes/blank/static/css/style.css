@@ -83,7 +83,7 @@ h3 {
   font-style: normal;
 }
 header {
-  background-color: lightsalmon;
+  /* background-color: lightsalmon; */
   font-family: var(--copy-font, serif);
   font-weight: 400;
   font-style: normal;
@@ -95,22 +95,66 @@ header > nav {
   flex-direction: column;
   align-items: center;
 }
-header > nav > div {
-  font-family: var(--title-font);
-  font-size: 3.5em;
-  padding: 16px 0 0 0;
-}
-header > nav > ul {
+#nav-items {
   display: flex;
   flex-direction: row;
   gap: 8px;
   list-style-type: none;
   padding: 0 0 0 0;
+  text-decoration: underline;
+}
+@keyframes vertical-shaking {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* #nav-items > li { */
+/*   padding: 4px 4px 4px 4px; */
+/*   border: 2px black solid; */
+/*   background-color: lightskyblue; */
+/*   border-radius: 15px; */
+/* } */
+#nav-items > li:hover {
+  animation: vertical-shaking 0.2s ease-in-out;
+}
+#title {
+  font-family: var(--title-font);
+  font-size: 6em;
+  padding: 16px 0 0 0;
+}
+#title-wrapper {
+  background-color: lightsalmon;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px 0 32px;
 }
 p > code {
   /* color: var(--pre-txt-color); */
   /* background: var(--pre-bg-color); */
   padding: 2px;
+  background-color: lightgray;
+}
+code {
+  background-color: lightgray;
+  padding: 3px;
+}
+
+.highlight > pre > code {
+  padding: 0;
 }
 p > a {
   font-weight: 600;
@@ -155,20 +199,22 @@ footer > p {
   display: inline-flex;
   padding: 8px 8px 8px 8px;
   background-color: var(--bg-color);
+  background-color: lightcyan;
 }
 #pagination > div {
   display: inline-flex;
-  padding: 8px 8px 8px 8px;
+  padding: 8px 16px 8px 16px;
   background-color: var(--bg-color);
+  background-color: hotpink;
 }
 /* common drop-shadow */
 #pagination > div,
 footer > p,
 main > div > h1,
-header,
+/* header, */
+#title-wrapper,
 article {
   box-shadow: 4px 4px 0 black;
   border: 2px solid black;
   border-radius: 5px;
 }
-
