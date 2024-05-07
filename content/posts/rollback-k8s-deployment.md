@@ -3,14 +3,14 @@ title: "Rollback a K8S deployment"
 date: 2024-02-20T10:50:29-04:00
 slug: 2024-02-20-rollback-a-k8s-deployment
 summary: "This is a nice 'lil script for rolling back a kubernetes deployment."
-draft: true
+draft: false
 categories:
   - programming
-  - devops
 tags:
   - fzf
   - bash
   - k8s
+  - devops
 ---
 
 This is a nice 'lil script for rolling back a k8s deployment.
