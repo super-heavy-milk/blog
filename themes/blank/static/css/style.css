@@ -108,17 +108,15 @@ header > nav > ul {
   padding: 0 0 0 0;
 }
 p > code {
-  color: var(--pre-txt-color);
-  background: var(--pre-bg-color);
+  /* color: var(--pre-txt-color); */
+  /* background: var(--pre-bg-color); */
   padding: 2px;
 }
-code {
-  color: var(--pre-txt-color);
-  background: var(--pre-bg-color);
-  /* padding: 2px; */
+p > a {
+  font-weight: 600;
 }
 pre {
-  color: var(--pre-txt-color);
+  /* color: var(--pre-txt-color); */
   background: var(--pre-bg-color);
   padding: 24px;
   overflow-x: auto;
@@ -163,7 +161,7 @@ footer > p {
   padding: 8px 8px 8px 8px;
   background-color: var(--bg-color);
 }
-
+/* common drop-shadow */
 #pagination > div,
 footer > p,
 main > div > h1,

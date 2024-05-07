@@ -24,12 +24,12 @@ repos:
   #
   # spelling
   #
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.4
-    hooks:
-      - id: codespell
-        types_or: [markdown, yaml, json]
-        stages: [manual]
+  # - repo: https://github.com/codespell-project/codespell
+  #   rev: v2.2.4
+  #   hooks:
+  #     - id: codespell
+  #       types_or: [markdown, yaml, json]
+  #       stages: [manual]
   #
   # lint gh action files
   #
@@ -37,12 +37,12 @@ repos:
     rev: v1.6.27
     hooks:
       - id: actionlint
-  #
-  # This one I only run manually as it's useful but subject to taste
-  #
-  - repo: https://github.com/amperser/proselint.git
-    rev: 0.14.0
-    hooks:
-      - id: proselint
-        types_or: [markdown, text]
-        stages: [manual]
+  # #
+  # # This one I only run manually as it's useful but subject to taste
+  # #
+  # - repo: https://github.com/amperser/proselint.git
+  #   rev: 0.14.0
+  #   hooks:
+  #     - id: proselint
+  #       types_or: [markdown, text]
+  #       stages: [manual]

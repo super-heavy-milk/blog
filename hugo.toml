@@ -35,3 +35,10 @@ sectionPagesMenu = 'main'
         name = "Github"
         url = "https://github.com/super-heavy-milk"
         weight = 1
+
+[markup]
+  [markup.highlight]
+       # style = 'perldoc'
+       style = 'rose-pine-dawn'
+       # style = 'witchhazel'
+       # style = 'tango'
