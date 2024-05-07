@@ -10,37 +10,42 @@ html {
   --pre-bg-color: #000;
   --copy-font: "Outfit";
   --title-font: "Archivo Black";
-  /* --title-font: "Outfit"; */
 }
-/* @media (prefers-color-scheme: dark) { */
-/*   :root { */
-/*     --bgcolor: #566071; */
-/*     --fontcolor: #c39f72; */
-/*     --linkcolor: #879e82; */
-/*     --visitedcolor: #d5bf95; */
-/*     --precolor: #879e82; */
-/*     --prebgcolor: #566071; */
-/*   } */
-/* } */
 body {
-  /* max-width: 800px; */
-  /* margin: 40px auto; */
-  /* padding: 0 10px; */
-  /* font: 14px/1.5 monospace; */
-  /* font: 1.2em Helvetica, Arial, sans-serif; */
   color: var(--font-color);
-  background: var(--bg-color);
+  background-color: darkkhaki;
   font-family: var(--copy-font, sans-serif);
   font-optical-sizing: auto;
   font-style: normal;
+
+  --s: 34px; /* control the size (the circle diameter) */
+  --c1: #ecbe13;
+  --c2: #309292;
+
+  --_g: radial-gradient(calc(var(--s) / 2), var(--c1) 97%, #0000);
+  background:
+    var(--_g),
+    var(--_g) calc(2 * var(--s)) calc(2 * var(--s)),
+    repeating-conic-gradient(from 45deg, #0000 0 25%, var(--c2) 0 50%)
+      calc(-0.707 * var(--s)) calc(-0.707 * var(--s)),
+    repeating-linear-gradient(
+      135deg,
+      var(--c1) calc(var(--s) / -2) calc(var(--s) / 2),
+      var(--c2) 0 calc(2.328 * var(--s))
+    );
+  background-size: calc(4 * var(--s)) calc(4 * var(--s));
+  /* 
+    0.707 = sqrt(2)/2
+    2.328 = 2*sqrt(2) - .5
+  */
 }
 main {
   max-width: 800px;
   margin: 40px auto;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 }
 a:link {
-  color: var(--link-color);
+  color: var(--link-visited-color);
   text-decoration: none;
 }
 a:visited {
@@ -54,6 +59,14 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+main > div > h1 {
+  background-color: lightskyblue;
+  box-shadow: 4px 4px 0 black;
+  border: 2px solid black;
+  padding: 16px 16px 16px;
+  margin: 16px 8px 24px;
+  width: fit-content;
+}
 h1,
 h2,
 h3 {
@@ -63,36 +76,31 @@ h3 {
   font-style: normal;
 }
 header {
-  background-color: coral;
+  background-color: lightsalmon;
   font-family: var(--copy-font, serif);
   font-weight: 400;
   font-style: normal;
-  padding: 8px 8px 8px 8px;
-  /* margin: 24px 8px 24px; */
-  /* box-shadow: 4px 4px 0 black; */
-  /* border: 2px solid black; */
+  padding: 8px 0px 8px 0px;
+  box-shadow: 4px 4px 0 black;
+  border: 2px solid black;
 }
-/* header { */
-/*   background-color: coral; */
-/*   font-family: var(--copy-font, serif); */
-/*   font-weight: 400; */
-/*   font-style: normal; */
-/*   padding: 24px 16px 24px; */
-/*   margin: 24px 8px 24px; */
-/*   /* box-shadow: 4px 4px 0 black; */ */
-/*   border: 2px solid black; */
-/* } */
-header > nav > ul {
+header > nav {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+header > nav > div {
+  font-family: var(--title-font);
+  font-size: x-large;
+  padding: 16px 0 0 0;
+}
+header > nav > ul {
+  display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   list-style-type: none;
-  /* width: 100%; */
 }
 header > nav > ul > li {
-  /* flex: 0 0 0 50%; */
-  /* width: 100%; */
   padding-right: 8px;
 }
 p > code {
@@ -116,6 +124,7 @@ article {
   margin: 16px 8px 24px;
   box-shadow: 4px 4px 0 black;
   border: 2px solid black;
+  background-color: var(--bg-color);
 }
 .center {
   display: block;
