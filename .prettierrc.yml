@@ -1,2 +1,10 @@
+---
 plugins:
   - prettier-plugin-java
+  - prettier-plugin-go-template
+overrides:
+  - files:
+      - "./themes/blank/**/*.html"
+    options:
+      parser: "go-template"
+      goTemplateBracketSpacing: true

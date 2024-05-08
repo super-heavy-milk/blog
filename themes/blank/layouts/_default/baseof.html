@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en-us" }}">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ .Title }}</title>
-	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-	{{ with .OutputFormats.Get "RSS" -}}
-		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-	{{- end }}
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-	{{ partial "header" . }}
-	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
-</body>
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default `en-us` }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ .Title }}</title>
+    <!-- description -->
+    {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}" />
+    {{ end }}
+    <!-- author -->
+    {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}" />
+    {{ end }}
+    <link rel="stylesheet" href="{{ `css/style.css` | relURL }}" />
+    {{ with .OutputFormats.Get "RSS" -}}
+    <!-- rss -->
+    {{ printf `
+    <link rel="%s" type="%s" href="%s" title="%s" />
+    ` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }} {{- end }}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    {{ partial "header" . }}
+    <!-- main content -->
+    {{ block "main" . }}{{ end }}
+    <!-- footer -->
+    {{ partial "footer" . }}
+  </body>
 </html>
