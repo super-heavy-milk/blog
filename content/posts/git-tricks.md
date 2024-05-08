@@ -1,9 +1,9 @@
 ---
-title: "Git Tricks"
+title: "Git In My Bellauh"
 date: 2024-05-03T16:46:44-04:00
 slug: 2024-05-03-git-tricks
 type: posts
-summary: "Things I've learned and don't want to forget about Git."
+summary: "Git lore and trivia I've picked up."
 draft: false
 categories:
   - programming
@@ -11,11 +11,13 @@ tags:
   - git
 ---
 
-# Git Files
+_This is a WIP that I'll be adding to over time._
+
+## Git Files
 
 There are a couple of files that Git uses for settings and other stuff.
 
-## .gitignore
+### .gitignore
 
 The [.gitignore](https://git-scm.com/docs/gitignore) file is widely used and you've probably come across it if you have done any programming.
 

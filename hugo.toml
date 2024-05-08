@@ -2,7 +2,7 @@ baseURL = 'https://www.tylerlawton.dev/'
 languageCode = 'en-us'
 title = "Tyler Lawton"
 theme = 'blank'
-sectionPagesMenu = 'main'
+# sectionPagesMenu = 'main' # auto pick up pages
 # copyright = 'copyright text'
 
 # Parameters for the "smol" theme
@@ -29,6 +29,12 @@ sectionPagesMenu = 'main'
         name = "Tags"
         url = "/tags/"
         weight = 3
+
+  [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about/"
+        weight = 4
 
 # Footer
   [[menu.footer]]

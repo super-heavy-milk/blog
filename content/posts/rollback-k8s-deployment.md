@@ -10,7 +10,6 @@ tags:
   - fzf
   - bash
   - k8s
-  - devops
 ---
 
 This is a nice 'lil script for rolling back a k8s deployment.

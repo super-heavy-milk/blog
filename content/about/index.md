@@ -1,16 +1,14 @@
 ---
 title: "About"
 date: 2024-05-03T09:07:30-04:00
-draft: true
+draft: false
 ---
 
 I'm Tyler Lawton, a software engineer living and working in Pittsburgh, PA.
 
 ## Work
 
-I worked on an E-commerce Search Platform for the past 4.5 years
-
-Prior to that, I worked in restaurants, cut grass and moonlighted as a sound guy.
+I worked on an E-commerce Search Platform for the past 4.5 years.
 
 See my CV _(pending)_ for more details.
 
@@ -22,11 +20,11 @@ We have two cats, Poof and Almy (Alma Jean).
 
 ## Hobbies
 
-Avid reader _(mostly pulpy sci-fi/fantasy with a smattering of "literature")_.
+Avid reader _(mostly pulpy sci-fi/fantasy with a smattering of literature)_.
 
-Lifelong musician - mostly upright bass but other stuff too.
+Lifelong musician - primarily upright bass but other stuff too.
 
-I oscillate between mountain biking, rock claiming and weight lifting when I want to move.
+I oscillate between mountain biking, rock climbing and weight lifting when I want to move.
 
 ## Contact
 
