@@ -171,6 +171,12 @@ article {
   margin: 16px 0px 24px 0px;
   background-color: var(--bg-color);
 }
+.card-title {
+  margin-bottom: 0px;
+}
+.card-subtitle {
+  margin-bottom: 16px;
+}
 .center {
   display: block;
   margin-left: auto;
