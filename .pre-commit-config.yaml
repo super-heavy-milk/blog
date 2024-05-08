@@ -8,6 +8,9 @@ repos:
     hooks:
       - id: prettier
         types_or: [markdown, yaml, json, html, css]
+        additional_dependencies:
+          - prettier-plugin-java
+          - prettier-plugin-go-template
   #
   # utility checks
   #
