@@ -17,7 +17,9 @@
     <!-- rss -->
     {{ printf `
     <link rel="%s" type="%s" href="%s" title="%s" />
-    ` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }} {{- end }}
+    ` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    <!-- rss -->
+    {{- end }}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
