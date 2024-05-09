@@ -13,19 +13,21 @@ tags:
 
 This is a nice hack taken from [Jamie Tanna](https://www.jvt.me/posts/2020/05/15/gradle-spotless/) on her blog.
 
-You can create a top-level Gradle files for stuff using Gradle's [initialization scripts](https://docs.gradle.org/current/userguide/init_scripts.html) to apply common actions anytime Gradle is ran.
+You can create top-level Gradle tasks using [initialization scripts](https://docs.gradle.org/current/userguide/init_scripts.html) to apply common actions anytime Gradle is ran.
 
-Gradle will look for init scripts (and execute) in the following order:
+Gradle will look for init scripts (and execute them) in the following order:
 
-- `init.gradle` in the `$GRADLE_USER_HOME/` directory.
-- `*.gradle` in the `$GRADLE_USER_HOME/init.d/` directory.
-- `*.gradle` in the `$GRADLE_HOME/init.d/` directory, in the Gradle distribution.
+1. `init.gradle` in the `$GRADLE_USER_HOME/` directory.
+1. `*.gradle` in the `$GRADLE_USER_HOME/init.d/` directory.
+1. `*.gradle` in the `$GRADLE_HOME/init.d/` directory, in the Gradle distribution.
 
 You can also invoke init scripts using the `--init-script` or `-I` flag:
 
 ```sh
 gradle --init-script init.gradle
 ```
+
+See [Configuring the Gradle Build Environment](https://docs.gradle.org/current/userguide/build_environment.html) for more info.
 
 Here's an example for a `~/.gradle/init.d/spotless.gradle` file:
 
@@ -45,6 +47,10 @@ allprojects {
 
 Note the use of `allprojects`.
 
-- If spotless exists in a given project, it will apply the Spotless configuration:
-  - after the code has successfully compiled
-  - before any other configured tasks
+This above snippet will do the following:
+
+- If Spotless exists in a given project, it will apply the Spotless configuration:
+  - _after_ the code has successfully compiled
+  - _before_ any other configured tasks
+
+Running tests or other static analysis tools could be applied in a similar fashion.
