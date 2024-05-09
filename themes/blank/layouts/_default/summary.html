@@ -1,7 +1,7 @@
 <article>
   <h2 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
   <div class="card-subtitle">
-    <time datetime="{{ .Date.Format `2006-01-02T15:04:05` }}">{{ .Date.Format .Site.Params.dateFmt }}&nbsp;|&nbsp;</time>
+    <time datetime="{{ .Date.Format `2006-01-02T15:04:05` }}">{{ .Date.Format .Site.Params.dateFmt }}&nbsp</time>
     {{ range .Params.tags }}
       <a class="card-tag" href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
     {{ end }}
