@@ -23,10 +23,7 @@ body {
 
   /* from https://css-pattern.com/ */
   --s: 34px; /* control the size (the circle diameter) */
-  /* --c1: #ecbe13; */
-  /* --c2: #309292; */
   --c1: #ecbe13;
-  /* --c1: #309292; */
   --c2: darkkhaki;
   --_g: radial-gradient(calc(var(--s) / 2), var(--c1) 97%, #0000);
   background:
@@ -40,15 +37,10 @@ body {
       var(--c2) 0 calc(2.328 * var(--s))
     );
   background-size: calc(4 * var(--s)) calc(4 * var(--s));
-  /* 
-    0.707 = sqrt(2)/2
-    2.328 = 2*sqrt(2) - .5
-  */
 }
 main {
   max-width: 800px;
   margin: 40px auto;
-  /* padding: 0 10px; */
 }
 a:link {
   color: var(--link-visited-color);
@@ -83,7 +75,6 @@ h3 {
   font-style: normal;
 }
 header {
-  /* background-color: lightsalmon; */
   font-family: var(--copy-font, serif);
   font-weight: 400;
   font-style: normal;
@@ -120,12 +111,6 @@ header > nav {
     transform: translateY(0);
   }
 }
-/* #nav-items > li { */
-/*   padding: 4px 4px 4px 4px; */
-/*   border: 2px black solid; */
-/*   background-color: lightskyblue; */
-/*   border-radius: 15px; */
-/* } */
 #nav-items > li:hover {
   animation: vertical-shaking 0.2s ease-in-out;
 }
@@ -143,8 +128,6 @@ header > nav {
   padding: 0 32px 0 32px;
 }
 p > code {
-  /* color: var(--pre-txt-color); */
-  /* background: var(--pre-bg-color); */
   padding: 2px;
   background-color: lightgray;
 }
@@ -152,7 +135,6 @@ code {
   background-color: lightgray;
   padding: 3px;
 }
-
 .highlight > pre > code {
   padding: 0;
 }
@@ -160,7 +142,6 @@ p > a {
   font-weight: 600;
 }
 pre {
-  /* color: var(--pre-txt-color); */
   background: var(--pre-bg-color);
   padding: 24px;
   overflow-x: auto;
@@ -217,7 +198,6 @@ footer > p {
 #pagination > div,
 footer > p,
 main > div > h1,
-/* header, */
 #title-wrapper,
 article {
   box-shadow: 4px 4px 0 black;
