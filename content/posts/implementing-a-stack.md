@@ -1,7 +1,7 @@
 ---
 title: "Implementing a Stack"
-date: 2024-05-01T12:30:33-04:00
-slug: 2024-05-01-implementing-a-stack
+date: 2024-03-09T12:30:33-04:00
+slug: 2024-03-09-implementing-a-stack
 summary: "Building a stack is a great way to learn about how you can create a useful data structure from low level building blocks."
 type: posts
 draft: false

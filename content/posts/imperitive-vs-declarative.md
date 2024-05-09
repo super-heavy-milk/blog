@@ -1,7 +1,7 @@
 ---
 title: "Imperative vs Declarative"
-date: 2024-03-16T10:51:08-04:00
-slug: 2024-03-16-imperative-vs-declarative
+date: 2024-01-16T10:51:08-04:00
+slug: 2024-01-16-imperative-vs-declarative
 type: posts
 summary: "Try to be declarative if possible."
 draft: false

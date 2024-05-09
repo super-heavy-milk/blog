@@ -1,7 +1,7 @@
 ---
 title: "Git In My Bellauh"
-date: 2024-05-03T16:46:44-04:00
-slug: 2024-05-03-git-tricks
+date: 2024-04-23T16:46:44-04:00
+slug: 2024-04-23-git-tricks
 type: posts
 summary: "Git lore and trivia I've picked up."
 draft: false

@@ -2,12 +2,13 @@
 title: "Gradle Init Scripts"
 date: 2024-05-06T14:40:39-04:00
 slug: 2024-05-06-gradle-init-scripts
-summary: "I should stop trying to do Unix-y stuff with Java but whatever."
+summary: "I should stop trying to do Unix-y stuff with Java."
 type: posts
 draft: false
 categories:
   - programming
 tags:
+  - java
   - gradle
 ---
 
