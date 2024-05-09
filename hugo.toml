@@ -5,10 +5,11 @@ theme = 'blank'
 # sectionPagesMenu = 'main' # auto pick up pages
 # copyright = 'copyright text'
 
-# Parameters for the "smol" theme
+# can be accessed at '.Site.Params.<var_name>'
 [params]
     # subtitle = "subtitle"
-    dateFmt = "02.01.2006 15:04"
+    # dateFmt = "02.01.2006 15:04"
+    dateFmt = "Jan 1, 2006"
 
 # Header
 [menu]
