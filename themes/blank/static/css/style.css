@@ -2,19 +2,26 @@ html {
   overflow-y: scroll;
 }
 :root {
-  --bg-color: #e6cfd6;
+  --bg-color-cards: #e6cfd6;
+  --bg-color-code: lightgray;
+  --bg-color-footer: lightcyan;
+  --bg-color-header-title: lightsalmon;
+  --bg-color-pagination: hotpink;
+  --bg-color-pills: #ecbe13;
+  --bg-color-pre: #000;
+  --bg-color-top-h1: lightskyblue;
+  --bg-color: darkkhaki;
   --font-color: #444;
+  --font-family-content: "Outfit";
+  --font-family-title: "Bebas Neue";
   --link-color: #00e;
   --link-visited-color: #551a8b;
-  --pre-txt-color: #fff;
-  --pre-bg-color: #000;
-  --copy-font: "Outfit";
+  --txt-color-pre: #fff;
   /* --title-font: "Archivo Black"; */
-  --title-font: "Bebas Neue";
 }
 body {
   color: var(--font-color);
-  font-family: var(--copy-font, sans-serif);
+  font-family: var(--font-family-content, sans-serif);
   font-optical-sizing: auto;
   font-style: normal;
 
@@ -23,8 +30,8 @@ body {
 
   /* from https://css-pattern.com/ */
   --s: 34px; /* control the size (the circle diameter) */
-  --c1: #ecbe13;
-  --c2: darkkhaki;
+  --c1: var(--bg-color-pills);
+  --c2: var(--bg-color);
   --_g: radial-gradient(calc(var(--s) / 2), var(--c1) 97%, #0000);
   background:
     var(--_g),
@@ -58,7 +65,7 @@ a:hover {
   text-decoration: underline;
 }
 main > div > h1 {
-  background-color: lightskyblue;
+  background-color: var(--bg-color-top-h1);
   padding: 16px 16px 16px;
   margin: 16px 0px 24px;
   width: fit-content;
@@ -67,12 +74,12 @@ h1,
 h2,
 h3 {
   line-height: 1.2;
-  font-family: var(--title-font, serif);
+  font-family: var(--font-family-title, serif);
   font-weight: 400;
   font-style: normal;
 }
 header {
-  font-family: var(--copy-font, serif);
+  font-family: var(--font-family-content, serif);
   font-weight: 400;
   font-style: normal;
   padding: 8px 0px 8px 0px;
@@ -112,12 +119,12 @@ header > nav {
   animation: vertical-shaking 0.2s ease-in-out;
 }
 #title {
-  font-family: var(--title-font);
+  font-family: var(--font-family-title);
   font-size: 6rem;
   padding: 16px 0 0 0;
 }
 #title-wrapper {
-  background-color: lightsalmon;
+  background-color: var(--bg-color-header-title);
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -127,7 +134,7 @@ header > nav {
 code:not(.highlight code) {
   font-size: 1rem;
   padding: 3px;
-  background-color: lightgray;
+  background-color: var(--bg-color-code);
 }
 .highlight {
   font-size: 1rem;
@@ -143,7 +150,7 @@ article {
   font-size: 1.2rem;
   padding: 16px 16px 24px;
   margin: 16px 0px 24px 0px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-cards);
 }
 .card-title {
   margin-bottom: 0px;
@@ -178,15 +185,14 @@ footer {
 footer > p {
   display: inline-flex;
   padding: 8px 8px 8px 8px;
-  background-color: var(--bg-color);
-  background-color: lightcyan;
+  background-color: var(--bg-color-footer);
 }
 #pagination > div {
   display: inline-flex;
   padding: 8px 16px 8px 16px;
-  background-color: var(--bg-color);
-  background-color: hotpink;
+  background-color: var(--bg-color-pagination);
 }
+
 /* common drop-shadow */
 #pagination > div,
 footer > p,
