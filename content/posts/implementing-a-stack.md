@@ -24,11 +24,11 @@ tags:
 
 ---
 
-I've been trying to go through some DSA (Data Structures & Algorithms) stuff that I've forgotten in my time as a [digital plummer](https://www.karllhughes.com/posts/plumbing) at my last job.
+I've been going through some of the Data Structures & Algorithms (DSA) material that I've forgotten in my time as a [digital plummer](https://www.karllhughes.com/posts/plumbing) at my last job. I've forgotten most of it. It's humbling, to say the least.
 
-It's humbling, to say the least. I suck at it. In my somewhat limited experience, most of _Software Engineering_ is stitching together disparate systems and turning out _product features_ as fast as humanly possible.
+> In my experience, most of _Software Engineering_ is stitching disparate systems together and turning out _product features_ as fast as humanly possible, not optimising internal interfaces.
 
-The upside is, when I learned DSA originally, I had no appreciation or perhaps _context_ for the use of this stuff. My mental model of what programming really does it much stronger, and I have to say, this stuff is much more interesting now.
+The upside is, when I learned DSA originally, I had no appreciation _or perhaps context_ for the use of it. After having to write production code in anger for the past 4+ years, it's interesting how much more applicable the old DSA lessons are.
 
 # What is a Stack?
 
