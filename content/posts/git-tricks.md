@@ -11,7 +11,50 @@ tags:
   - git
 ---
 
-_This is a WIP that I'll be adding to over time._
+_Note: This is woefully incomplete. I'll be adding more over time._
+
+## Table of Contents
+
+- [Commands](#commands)
+  - [checkout/switch](#checkoutswitch)
+- [Git Files](#git-files)
+  - [.gitignore](#gitignore)
+
+## Commands
+
+Some common `git` commands I use frequently.
+
+### checkout/switch
+
+The practical difference between `git switch` and `git checkout` comes down to:
+
+- _files vs branches_.
+
+For example:
+
+1. I make some changes to `state_of_the_art_ai.py`
+1. The changes are now unstaged (or staged).
+1. I don't like them, and want to reset the file and start over.
+
+I can run the following to reset the file to the last commit:
+
+```sh
+git checkout -- state_of_the_art_ai.py
+```
+
+Bonus:
+
+> If you're in vim, you can run `:!git checkout -- %` right from the editor.
+
+The "gotcha" is that:
+
+> **given** I omit the `"--"` from the command
+>
+> **and** there is a git branch called `state_of_the_art_ai.py`
+>
+> **then** git will switch to that branch instead of resetting the file.
+
+Thus the `git switch` command - it will always checkout a branch, never a file.
 
 ## Git Files
 
