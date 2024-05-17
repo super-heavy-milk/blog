@@ -13,6 +13,8 @@ tags:
 
 _Note: This is woefully incomplete. I'll be adding more over time._
 
+![Fat Bastard yelling "Get in my belly"](/fat_bastard.jpeg)
+
 ## Table of Contents
 
 - [Commands](#commands)

@@ -12,6 +12,10 @@ tags:
   - dsa
 ---
 
+_As per usual, this is a WIP. Chipping away at it!_
+
+## Table of Contents
+
 - [Introduction](#introduction)
 - [What is a Stack?](#what-is-a-stack)
   - [FIFO](#fifo)
@@ -20,7 +24,7 @@ tags:
 - [Implementations](#implementations)
   - [Array-Based FIFO Stack](#array-based-fifo-stack)
 
-# Introduction
+## Introduction
 
 ---
 
@@ -30,7 +34,7 @@ I've been going through some of the Data Structures & Algorithms (DSA) material 
 
 The upside is, when I learned DSA originally, I had no appreciation _or perhaps context_ for the use of it. After having to write production code in anger for the past 4+ years, it's interesting how much more applicable the old DSA lessons are.
 
-# What is a Stack?
+## What is a Stack?
 
 ---
 
@@ -40,7 +44,7 @@ Stacks come in three basic flavors:
 - LIFO (Last-In, First-Out), also called a _Pushdown Stack_
 - Bag, a sort of read-only Stack
 
-## FIFO
+### FIFO
 
 FIFO (Queue) Stacks adhere to this sort of API:
 
@@ -66,7 +70,7 @@ A good real-word example of this waiting in line at the DMV.
 - The DMV worker calls a number that is next - _dequeue_
 - The person at the bottom of the stack is removed
 
-## LIFO
+### LIFO
 
 LIFO (Pushdown) Stacks adhere to this sort of API:
 
@@ -94,7 +98,7 @@ I like to imagine a big 'ol stack of pancakes for this structure:
 - You have to trim down the stack to a reasonable size.
 - To do so, you take them off _from the top_, one at a time, starting with pancake 6.
 
-## Bags
+### Bags
 
 I find Bags to be kinda funny, even cute. It's just a ...uh...bag to throw stuff into.
 
@@ -116,7 +120,7 @@ There are basically two main ways to make a Stack:
 - using an array
 - using a linked list
 
-## Array-Based LIFO Stack
+### Array-Based LIFO Stack
 
 The thing that makes this interesting/tricky is that the underlying array has to be grown/shrunk, and so you can't rely on simple `array.length` calls to get the number of items.
 
