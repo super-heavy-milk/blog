@@ -19,6 +19,7 @@ _Note: This is woefully incomplete. I'll be adding more over time._
 
 - [Commands](#commands)
   - [checkout/switch](#checkoutswitch)
+  - [restore](#restore)
 - [Git Files](#git-files)
   - [.gitignore](#gitignore)
 
@@ -30,33 +31,68 @@ Some common `git` commands I use frequently.
 
 The practical difference between `git switch` and `git checkout` comes down to:
 
-- _files vs branches_.
+> _files vs branches_
 
 For example:
 
-1. I make some changes to `state_of_the_art_ai.py`
-1. The changes are now unstaged (or staged).
+1. I make some changes to `turbo_ml.py`
+1. The changes are now _unstaged_.
 1. I don't like them, and want to reset the file and start over.
 
 I can run the following to reset the file to the last commit:
 
 ```sh
-git checkout -- state_of_the_art_ai.py
+git checkout -- turbo_ml.py
 ```
 
-Bonus:
+Bonus for vimmers:
 
-> If you're in vim, you can run `:!git checkout -- %` right from the editor.
+> You can run `:!git checkout -- %` right from the editor.
 
 The "gotcha" is that:
 
-> **given** I omit the `"--"` from the command
+> **Given** there is a git _branch_ called `turbo_ml.py`.
 >
-> **and** there is a git branch called `state_of_the_art_ai.py`
+> **When** I omit the `--` from the `checkout` command.
 >
-> **then** git will switch to that branch instead of resetting the file.
+> **Then** git will checkout the `turbo_ml.py` _branch_ instead of resetting the _file_.
 
-Thus the `git switch` command - it will always checkout a branch, never a file.
+Granted, it's pretty unlikely that you will have a git branched called "turbo_ml.py" but stranger things have happened.
+
+Consequently, this is why the `git switch` (and `git restore`, see below) command was introduced in [Git's 2019 v2.23.0 release](https://public-inbox.org/git/xmqqy2zszuz7.fsf@gitster-ct.c.googlers.com/).
+
+- The `switch` command **can** checkout a branch
+- The `switch` command **can't** revert/reset a file.
+- It's less flexible, but that's the point - less room for error.
+
+### restore
+
+I wanted to include `git restore` after explaining `checkout` vs `switch`.
+
+Remember how you can discard can discard local _unstaged_ changes using the `checkout` command? That's what `restore` does.
+
+```sh
+# using checkout
+git checkout -- turbo_ml.py
+
+# using restore
+git restore turbo_ml.py
+```
+
+> Because the `restore` command has no capability to _checkout_ a branch, there is no need to include the `--` safeguard that the `checkout` command requires.
+
+There is another reason to use the `restore` command:
+
+- If you have _staged_ a file, you can unstage it without discarding your local changes.
+
+```sh
+# no longer staged for commit + local changes are still there
+git restore --staged turbo_ml.py
+```
+
+Bonus for vimmers:
+
+> You can run `:!git restore --staged %` right from the editor.
 
 ## Git Files
 
@@ -66,11 +102,11 @@ There are a couple of files that Git uses for settings and other stuff.
 
 The [.gitignore](https://git-scm.com/docs/gitignore) file is widely used and you've probably come across it if you have done any programming.
 
-I like to use this [repo](https://github.com/github/gitignore) for getting ideas or templates for specific repositories or projects.
+> _I like to use this [repo](https://github.com/github/gitignore) for getting templates for specific repositories or projects._
 
-What's not commonly known that's useful is that you can have a _global_ `.gitignore` in the `~/.config/git/ignore` file _(note the lack of extension)_.
+What's not commonly discussed that I find to be useful is that you can have a **global** `.gitignore` in the `~/.config/git/ignore` file _(note the lack of extension)_.
 
-> Great for common editor, OS, library, etc settings.
+> _The global ignore file is great for common editor, OS, library, etc settings._
 
 Example Global `ignore` file:
 
