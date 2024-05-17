@@ -6,6 +6,8 @@ draft: false
 
 I'm Tyler Lawton, a software engineer living and working in Pittsburgh, PA.
 
+The posts on this site are my notes, polished a bit so that they have some narrative structure. Usually they are half-finished, but I like to get them out and then iterate on them as I have time.
+
 ## Work
 
 I worked on an E-commerce Search Platform for the past 4.5 years.
