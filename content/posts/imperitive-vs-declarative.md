@@ -17,9 +17,18 @@ Short post today, simple premise:
 
 Small aside:
 
-> One of the reasons I started writing about programming is that most of the tech blogs I enjoy tend to provide examples in "cool" languages - Rust, Go, Lisp, etc. However, most of us are stuck writing in Enterprise Approved™ languages, so I thought it would be neat to write about the mostly uncool languages I'm familiar with _\*cough Java\*_.
+> One of the reasons I started writing about programming is that most of the tech blogs I enjoy tend to provide examples in "cool" languages - Rust, Go, Lisp, etc.
+>
+> However, most of us are stuck writing in Enterprise Approved™ languages, so I thought it would be neat to write about the mostly uncool languages I'm familiar with _\*cough Java\*_.
 
-Anyways, here what I mean by declarative:
+Anyways, here is what I mean by imperative vs declarative.
+
+Objective:
+
+1. Find a name in a list.
+1. Print it, if it exists.
+
+We're going to try two different styles to achieve this. Which one do you prefer?
 
 ```java
 import java.util.List;
@@ -35,16 +44,7 @@ public class Demo {
       "Karl Plunk"
     );
 
-    /*
-      Our goal today is to:
-        - Find a name in a list
-        - Print it if it exists
-
-      Let's try two different styles to achieve this.
-        - Which one do you prefer?
-    */
-
-    // Imperative
+    /* Imperative */
     var name = "";
     for (String s : names) {
       if (s.contains("Tyler")) {
@@ -53,15 +53,15 @@ public class Demo {
     }
 
     if (!name.isEmpty()) {
-      System.out.println(name); // "Tyler Lawton"
+      System.out.println(name);
     }
 
-    // Declarative
+    /* Declarative */
     names
       .stream()
       .filter(str -> str.contains("Tyler"))
       .findFirst()
-      .ifPresent(System.out::println); // "Tyler Lawton"
+      .ifPresent(System.out::println);
   }
 }
 
@@ -69,11 +69,16 @@ public class Demo {
 
 The declarative style wins for me.
 
-- Java manages to shine in this case, because the chain of operations reads almost like English.
-- The intent, which is to _print something if it's found_, is fully encapsulated - no intermediate variables, no scope change, no mutation.
+- The chain of operations reads almost like English.
+- The intent, which is to _print something if it's found_, is fully encapsulated.
+- No intermediate variables, no scope change, no mutation.
 
 The imperative style is also readable, but it's clunky.
 
 - I have to instantiate an intermediate variable, `name`.
 - I have to track the mutation of the `name` variable.
 - The intent, which is to _print something if it's found_, is not encapsulated - it's spread across several scopes.
+
+This may seem like a trite example, but that's kind of the point.
+
+It's an _easy, quick win_ to write code in the declarative style if you have the option, and it compounds into a net benefit in a larger codebase.
