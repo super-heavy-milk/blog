@@ -18,7 +18,8 @@ _Note: This is woefully incomplete. I'll be adding more over time._
 ## Table of Contents
 
 - [Commands](#commands)
-  - [checkout/switch](#checkoutswitch)
+  - [checkout](#checkout)
+  - [switch](#switch)
   - [restore](#restore)
 - [Git Files](#git-files)
   - [.gitignore](#gitignore)
@@ -27,7 +28,24 @@ _Note: This is woefully incomplete. I'll be adding more over time._
 
 Some common `git` commands I use frequently.
 
-### checkout/switch
+### checkout
+
+The `checkout` command is _mostly_ used for switching branches (more on that below).
+
+The two commands I use frequently are:
+
+```sh
+# switch to an existing branch
+git checkout branch-name
+
+# create a new branch and switch to it
+git checkout -b new-branch
+
+```
+
+The above is probably the most common use of `checkout`.
+
+### switch
 
 The practical difference between `git switch` and `git checkout` comes down to:
 
@@ -69,7 +87,7 @@ Consequently, this is why the `git switch` (and `git restore`, see below) comman
 
 I wanted to include `git restore` after explaining `checkout` vs `switch`.
 
-Remember how you can discard can discard local _unstaged_ changes using the `checkout` command? That's what `restore` does.
+Remember how you can discard local _unstaged_ changes using the `checkout` command? That's what `restore` does.
 
 ```sh
 # using checkout
