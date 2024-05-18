@@ -21,3 +21,13 @@ lint:
 # format the justfile
 fmt-justfile:
     just --fmt --unstable
+
+# resize an image e.g. 'just resize input_img.jpeg output_img.jpeg 100'
+resize input output resize_percent:
+    magick \
+        -verbose \
+        '{{ justfile_directory() }}/static/{{ input }}' \
+        -filter LanczosSharp \
+        -distort Resize {{ resize_percent }}% \
+        '{{ justfile_directory() }}/static/{{ output }}'
+
