@@ -2,6 +2,7 @@
 title: "Nvim Autocommands"
 date: 2024-05-17T22:16:16-04:00
 draft: true
+summary: "Use a list of tables instead of hard coding each one."
 ---
 
 This is slick, I'm mad I didn't think of it. [I found it here](https://stackoverflow.com/a/63909865/5978217).
