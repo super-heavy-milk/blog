@@ -2,7 +2,7 @@
 title: "Netrw"
 date: 2024-05-17T17:29:06-04:00
 slug: 2024-05-17-netrw
-draft: false
+draft: true
 type: posts
 summary: "bE a ViM mInAlmIsT"
 categories:
