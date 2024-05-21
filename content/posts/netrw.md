@@ -1,17 +1,15 @@
 ---
 title: "Netrw"
-date: 2024-05-21T17:29:06-04:00
-slug: 2024-05-21-netrw
-draft: false
+date: 2024-05-20T17:29:06-04:00
+slug: 2024-05-20-netrw
 type: posts
 summary: "bE a ViM mInAlmIsT"
+draft: false
 categories:
   - programming
 tags:
   - neovim
 ---
-
-_Y'all like vim?_
 
 {{< figure src="/party-loner-vim-resized.jpeg" title="Y'all like vim?" alt="a meme about vim" >}}
 
