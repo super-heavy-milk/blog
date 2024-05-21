@@ -228,12 +228,12 @@ th {
   background: #333;
   color: white;
   font-weight: bold;
+  text-align: center;
 }
 td,
 th {
   padding: 6px;
   border: 1px solid #ccc;
-  text-align: left;
 }
 table td:nth-child(1) {
   text-align: center;
