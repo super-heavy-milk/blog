@@ -1,8 +1,8 @@
 ---
 title: "Netrw"
-date: 2024-05-17T17:29:06-04:00
-slug: 2024-05-17-netrw
-draft: true
+date: 2024-05-21T17:29:06-04:00
+slug: 2024-05-21-netrw
+draft: false
 type: posts
 summary: "bE a ViM mInAlmIsT"
 categories:
@@ -13,7 +13,7 @@ tags:
 
 _Y'all like vim?_
 
-{{< figure src="/party-loner-vim-resized.jpeg" alt="a meme about vim" >}}
+{{< figure src="/party-loner-vim-resized.jpeg" title="Y'all like vim?" alt="a meme about vim" >}}
 
 Programming is mostly thinking, followed by trying out a _probably wrong_ idea, and then more thinking. It's hard to demonstrate proficiency unless you're a competitive programmer and can spit out algorithms faster than ChatGPT can hallucinate them.
 
