@@ -4,30 +4,14 @@ date: 2023-11-21T09:07:30-04:00
 draft: false
 ---
 
-I'm Tyler Lawton, a software engineer living and working in Pittsburgh, PA.
+I'm Tyler Lawton, this is my blog.
 
-The posts on this site are my notes, polished a bit so that they have some narrative structure. Usually they are half-finished, but I like to get them out and then iterate on them as I have time.
+{{< figure src="/me_lighthouse_resized.jpeg" title="Me" alt="Tyler standing in front of a lighthouse upon which someone has scrawled 'I identify as a Lamp'." >}}
 
-## Work
+I'm a software engineer. I live and work in Pittsburgh, PA.
 
-I worked on an E-commerce Search Platform for the past 4.5 years.
+I became interested in tech because of a [book by Neal Stephenson](https://en.wikipedia.org/wiki/Cryptonomicon), so I thought it would fun to write about tech in a (hopefully) fun and engaging style.
 
-See my CV _(pending)_ for more details.
+> _The posts on this site are my notes (or rants) related to my career, polished a bit so that they have some narrative structure. Sometimes they are half-finished, but I like to get them out and then iterate on them as I have time._
 
-## Life
-
-I recently got engaged to a lovely, amazing woman.
-
-We have two cats, Poof and Almy (Alma Jean).
-
-## Hobbies
-
-Avid reader _(mostly pulpy sci-fi/fantasy with a smattering of literature)_.
-
-Lifelong musician - primarily upright bass but other stuff too.
-
-I oscillate between mountain biking, rock climbing and weight lifting when I want to move.
-
-## Contact
-
-Send me an email at me@tylerlawton.dev if you want to get in touch.
+Send me an email at me@tylerlawton.dev if you want to get in touch, or check out my [linkedin](https://www.linkedin.com/in/tylerlawton/) if you want to see my CV.
