@@ -16,17 +16,21 @@ I've been keeping an eye on Go for a couple of years now. It _appears_ to solve 
 1. asynchronous, network-dependent code
 1. distribution
 
-I'm hoping to actually get to use it in anger at some point for work. I want to test my hypothesis that it's a nice fit for writing glue code.
-
 ## Async
 
 I've experienced a lot frustration trying to write asynchronous, network-dependent code in Java, Javascript and Python.
 
-Java is actually well equipped to deal with this sort of thing. Of course, because it's Java, this manages to be a problem. There are simply too many ways to go about solving the async problem, and when you combine the array of choices with Spring, you start to get into max pain territory.
+Java is actually well equipped to deal with this sort of thing via threads. Of course, because it's Java, this manages to also be a problem. There are simply too many ways to go about doing async operations. Also, in order to use threads, you have to understand the whole history of threads in Java. There is a [400+ page book from 2006](https://www.oreilly.com/library/view/java-concurrency-in/0321349601/) that is still useful because to really get it, you have to go back pretty far.
+
+> _In Java's defense, concurrent programming is just inherently complex. Concurrent code in Java can be complex, but it also gives you a lot of tools._
 
 Python and Javascript have a slightly different (but related) issue, which is the ["what color is your function"](https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/) problem. If you don't want to read the linked article, the _tldr_ is that mixing async and non-async functions is headache.
 
-Go _seems_ to solve this quite neatly. The standard library has all the network packages you need for 99% of tasks. Because the standard library is so well equiped, dependencies can be kept to a minimum. No colored functions or heavy OS threads, just green threads in the form of goroutines. Practically speaking, this means that any function can be used in a linear, single-threaded fashion or in a concurrent, asynchronous context. Add in the [errors are values](https://go.dev/blog/errors-are-values) paradigm and Go really starts to look appealing.
+Go _seems_ to solve this quite neatly. The standard library is touted to have all the network packages you need for 99% of tasks. Because the standard library is well equipped, dependencies can be kept to a minimum. No colored functions or heavy OS threads, just green threads via goroutines.
+
+> _Practically speaking, this means that any function can be used in a linear, single-threaded fashion or in a concurrent, asynchronous context._
+
+Add in the [errors are values](https://go.dev/blog/errors-are-values) paradigm and Go really starts to look appealing.
 
 ## Distribution
 
@@ -34,16 +38,18 @@ Distribution is not that big of an issue if you're just writing dockerized servi
 
 All three of the aforementioned languages suffer from a similar problem - a reliance on a local runtime and local packages. Bash, another language I enjoy hacking small scripts in, has the same problem.
 
-Additionally, it's not just cli tools that can be a problem.
+Additionally, it's not just cli tools that can be a problem. At a previous job, we had thousands of lines of Jenkins job scripts written in Jenkins-flavored Groovy. Guess what happened when the org decided to move to GitHub Actions?
 
-At a previous job, we had thousands of lines of Jenkins job scripts written in Jenkins-flavored Groovy. Guess what happened when the org decided to move to GitHub Actions? Yup, all those scripts now had to be backported into, _shudder_, bash-in-yaml. What is maddening about the whole thing, is all the code really could have been simplified along the following structure.
+> _Yup, all those scripts had to be backported into bash-in-yaml._
 
-1. Maybe, take some input from standard in, or read some environment variables.
+What is maddening about the whole thing is that all the code could have been simplified into the classic Unix-y structure:
+
+1. Take some input from standard in, or read some environment variables.
 1. Do something.
 1. Log to standard err.
-1. Maybe, write to standard out.
+1. Write data for the next thing to consume to standard out.
 1. Exit.
 
-Had we written those scripts in an actual programming language (you know, with tests, and versioned dependencies), then it might not have been the enormous slice of tech debt that it turned into.
+Had we written those scripts in an actual programming language _(you know, with tests, and versioned dependencies)_, then it might not have been the enormous slice of tech debt that it turned into.
 
-Even better, if the scripts had been written in Go, then they could have just been static binaries. No system dependencies, no runtime, just curl the tarball. Hit it with a little `tar xzf` _"e[x]tract zee file"_ and you're good to go.
+Even better, if the scripts had been written in Go, then they could have just been static binaries. No system dependencies, no runtime. Just curl the tarball, hit it with a little `tar xzf` _"e[x]tract zee file"_ and you're good to go.
