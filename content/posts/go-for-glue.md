@@ -1,8 +1,8 @@
 ---
-title: "Go could have been named Glue"
+title: "Go for glue"
 date: "2024-05-23T14:03:23-04:00"
-slug: "2024-05-23-go-could-have-been-named-glue"
-summary: "The grass always looks greener on the other side."
+slug: "2024-05-23-go-for-glue"
+summary: "Ease into Go by using it to replace scripts?"
 draft: false
 categories:
   - programming
