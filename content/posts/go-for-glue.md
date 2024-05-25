@@ -2,7 +2,7 @@
 title: "Go for glue"
 date: "2024-05-23T14:03:23-04:00"
 slug: "2024-05-23-go-for-glue"
-summary: "Ease into Go by using it to replace scripts?"
+summary: "Should I use Go to replace scripts?"
 draft: false
 categories:
   - programming
@@ -18,9 +18,21 @@ I've been keeping an eye on Go for a couple of years now. It _appears_ to solve 
 
 ## Async
 
-I've experienced a lot frustration trying to write asynchronous, network-dependent code in Java, Javascript and Python.
+Network code is everywhere, and not just in serving web content to end users.
 
-Java is actually well equipped to deal with this sort of thing via threads. Of course, because it's Java, this manages to also be a problem. There are simply too many ways to go about doing async operations. Also, in order to use threads, you have to understand the whole history of threads in Java. There is a [400+ page book from 2006](https://www.oreilly.com/library/view/java-concurrency-in/0321349601/) that is still useful because to really get it, you have to go back pretty far.
+- polling an endpoint to monitor a long-running job
+- checking build status on a CI/CD server
+- diffing the state of a Git branch via the GitHub API
+- updating a Jira ticket
+- auto-generating a Confluence page
+- updating a Teams channel via a hook
+- etc
+
+Basically any kind of meaningful automation is doing operations over the wire. I've experienced a lot frustration trying to write asynchronous, network-dependent code in Java, Javascript, Python in a "scripting/automation" context. I think the reason is that they are just not well suited for it.
+
+> _Note: no one, including me, is using Java to script things. Try figuring out the best way to making a non-blocking HTTP call from within a Spring request context though._
+
+Java is actually well equipped to deal with concurrency via threads. Of course, because it's Java, this manages to also be a problem. There are simply too many ways to go about doing async operations. Also, in order to use threads, you have to understand the whole history of threads in Java. There is a [400+ page book from 2006](https://www.oreilly.com/library/view/java-concurrency-in/0321349601/) that is still useful because to really get it, you have to go back pretty far.
 
 > _In Java's defense, concurrent programming is just inherently complex. Concurrent code in Java can be complex, but it also gives you a lot of tools._
 
