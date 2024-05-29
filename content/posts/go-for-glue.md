@@ -2,7 +2,7 @@
 title: "Go for glue"
 date: "2024-05-23T14:03:23-04:00"
 slug: "2024-05-23-go-for-glue"
-summary: "Should I use Go to replace scripts?"
+summary: "I've been thinking that Go might be a good fit for devops scripting."
 draft: false
 categories:
   - programming
