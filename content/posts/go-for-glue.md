@@ -65,3 +65,70 @@ What is maddening about the whole thing is that all the code could have been sim
 Had we written those scripts in an actual programming language _(you know, with tests, and versioned dependencies)_, then it might not have been the enormous slice of tech debt that it turned into.
 
 Even better, if the scripts had been written in Go, then they could have just been static binaries. No system dependencies, no runtime. Just curl the tarball, hit it with a little `tar xzf` _"e[x]tract zee file"_ and you're good to go.
+
+## What's the catch?
+
+The catch is that Go is not a scripting language. It's verbose, and highly imperative.
+
+For example, here's some code to filter a list of objects in both Javascript and Go.
+
+**Javascript**
+
+```javascript
+const data = [
+  { a: [1, 2, 3], b: [4, 5, 6] },
+  { c: [7, 8, 9], d: [10, 11, 12] },
+  { e: [11, 12, 13], f: [4, 5, 6] },
+];
+
+const threshold = 6;
+const underThresholdInclusive = data.filter((obj) =>
+  Object.values(obj)
+    .flat()
+    .every((value) => value <= threshold),
+);
+
+console.log(underThresholdInclusive); // [{a:[1, 2, 3], b:[4, 5, 6]}]
+```
+
+**Go**
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	data := []map[string][]int{
+		{"a": {1, 2, 3}, "b": {4, 5, 6}},
+		{"c": {7, 8, 9}, "d": {10, 11, 12}},
+		{"e": {11, 12, 13}, "f": {4, 5, 6}},
+	}
+	threshold := 6
+	var underThresholdInclusive []map[string][]int
+
+	for _, m := range data {
+		include := true
+		for _, sublist := range m {
+			for _, v := range sublist {
+				if v > threshold {
+					include = false
+					break
+				}
+			}
+			if !include {
+				break
+			}
+		}
+		if include {
+			underThresholdInclusive = append(underThresholdInclusive, m)
+		}
+	}
+
+	fmt.Println(underThresholdInclusive) // [map[a:[1 2 3] b:[4 5 6]]]
+}
+```
+
+This is definitely going to fall in the realm of personal preference as to which one you prefer, but the Javascript version is much more succinct.
+
+Also, I don't think the example I've provided is especially contrived. Much of the work in a network-bound scripting context is going to be iterating over JSON responses. It's a bit of a pick-your-battle situation at the end of the day.
