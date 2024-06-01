@@ -82,10 +82,11 @@ const data = [
 ];
 
 const threshold = 6;
-const underThresholdInclusive = data.filter((obj) =>
-  Object.values(obj)
-    .flat()
-    .every((value) => value <= threshold),
+const underThresholdInclusive = data.filter(
+  (obj) =>
+    !Object.values(obj)
+      .flat()
+      .some((value) => value > threshold),
 );
 
 console.log(underThresholdInclusive); // [{a:[1, 2, 3], b:[4, 5, 6]}]
