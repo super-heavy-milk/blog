@@ -66,95 +66,160 @@ vim.keymap.set('n', '<leader>e', '<cmd>Lexplore<CR>',
 )
 ```
 
-If you want to take it a step further, this is a _dubiously tested_ toggle function that opens netrw with the following settings:
+## Enhance
+
+When I'm using vim, my workflow usually looks something like this:
+
+- `cd` into a project directory
+- open vim in the project root via `vi .`
+- navigate to the file I want to edit via either [telescope](https://github.com/nvim-telescope/telescope.nvim) or `:e path/to/file`
+
+Here's where the workflow breaks down.
+
+1. open vi in `blog/`
+1. navigate to `content/posts/post_1.md`
+1. toggle open netrw using `<leader>e`
+
+When I toggle netrw open, it shows me the tree in the `cwd` (project root), like so:
+
+```sh
+../
+blog/
+| .git/
+| .github/
+| archetypes/
+| assets/
+| content/
+| data/
+| i18n/
+| layouts/
+| node_modules/
+| public/
+| resources/
+| scratch/
+| static/
+```
+
+I like that it keeps my root context.
+
+What would be even better, is that when I toggle open netrw, my `root` context is preserved, and the filetree is expanded to the current file, like so:
+
+```sh
+
+blog/ <-- still starts from the project root
+| .git/
+| .github/
+| archetypes/
+| assets/
+| content/
+| | about/
+| | posts/
+| | | post_1.md <-- expanded to current file
+| | | post_2.md
+| | | post_3.md
+| | _index.md
+| data/
+| i18n/
+| layouts/
+| node_modules/
+| public/
+| resources/
+| scratch/
+| static/
+
+```
+
+So, here is a _dubiously tested_ toggle function that opens netrw with the following settings:
 
 - tree view
-- expanded to the current file
+- directories expanded to the current file
 - current file highlighted/focused
 - buffer centered to highlight
 
 Quite nice when you're deeply nested in some directory.
 
 ```lua
-
 local u = require 'custom.utils'
 
 local netrw_toggler = function()
-    -- @type boolean - Tracks if a netrw split has been opened.
-    local toggled = false
+  -- @type boolean - Tracks if a netrw split has been opened.
+  local delete_and_rtn_early = false
 
-    -- @type integer - Tracks the buffer number of the opened netrw split.
-    local toggled_netrw_buf_num = -1
+  -- @type integer - Tracks the buffer number of the opened netrw split.
+  local toggled_netrw_buf_num = -1
 
-    -- @type integer - Used to hold an autocommand to toggle false upon exiting the netrw buffer.
-    local toggler_group = vim.api.nvim_create_augroup('toggler_group', { clear = true })
+  -- @type integer - Holds an autocommand to fire upon netrw exit.
+  local toggler_group =
+    vim.api.nvim_create_augroup('toggler_group', { clear = true })
 
-    return function()
-        -------------------
-        -- EARLY RETURN  --
-        -------------------
+  return function()
+    -------------------
+    -- EARLY RETURN  --
+    -------------------
 
-        -- toggle should short circuit if only netrw is open
-        if vim.bo.ft == 'netrw' and #vim.api.nvim_list_wins() == 1 then
-            vim.notify('Must have more than one window open to toggle Netrw', vim.log.levels.WARN)
-            return
-        end
-
-        -- if already toggled open, use the stored state to delete the open buffer
-        if toggled and toggled_netrw_buf_num ~= -1 then
-            vim.api.nvim_buf_delete(toggled_netrw_buf_num, {})
-            -- because the buffer was deleted,
-            -- the 'WinClosed' autocommand defined below will set `toggled=false`
-            return
-        end
-
-        ---------------------------
-        -- BEFORE OPENING NETRW  --
-        ---------------------------
-
-        -- @type string - The buffer from which the cmd is launched.
-        local cmd_buf = vim.api.nvim_buf_get_name(0)
-
-        -- @type string
-        local cmd_buf_parent_dir_path = vim.fs.dirname(cmd_buf) or '.'
-
-        -- set last search as file name, so it is highlighted/focused upon netrw open
-        vim.cmd [[:let @/=expand("%:t")]] -- [:t] 'tail' (last file), no path
-
-        -- open netrw in left split
-        vim.cmd('Lexplore ' .. cmd_buf_parent_dir_path)
-
-        -------------------------
-        -- AFTER OPENING NETRW --
-        -------------------------
-
-        -- set the variables captured by the closure
-        toggled = true -- so that upon next invocation of `<leader>e`, the netrw buf is deleted
-        toggled_netrw_buf_num = vim.api.nvim_get_current_buf()
-
-        -- expand the tree upwards for every parent directory til root is reached
-        local root = u.get_project_root_dir() or vim.fn.getcwd()
-        for dir in vim.fs.parents(cmd_buf) do
-            if dir == root then
-                break
-            end
-            vim.cmd "call netrw#Call('NetrwBrowseUpDir', 1)"
-        end
-
-        -- n<CR> will focus/highlight the last search, which was set above
-        -- zz will center the buffer
-        vim.cmd ':normal n<CR>zz'
-
-        -- handle edge case: quitting netrw with command other than `<leader>e`
-        vim.api.nvim_create_autocmd({ 'WinClosed' }, {
-            group = toggler_group,
-            buffer = toggled_netrw_buf_num, -- pin to the toggled buffer
-            once = true, -- delete after firing, needed because of pin
-            callback = function()
-                toggled = false
-            end,
-        })
+    -- toggle should short circuit if only netrw is open
+    if vim.bo.ft == 'netrw' and #vim.api.nvim_list_wins() == 1 then
+      return
     end
+
+    -- if already toggled open,
+    -- use the stored state to delete the open buffer
+    if delete_and_rtn_early and toggled_netrw_buf_num ~= -1 then
+      vim.api.nvim_buf_delete(toggled_netrw_buf_num, {})
+      -- because the buffer was deleted,
+      -- the 'WinClosed' autocommand defined below will
+      -- set `delete_and_rtn_early=false`
+      return
+    end
+
+    ---------------------------
+    -- BEFORE OPENING NETRW  --
+    ---------------------------
+
+    -- @type string - The buffer from which the cmd is launched.
+    local cmd_buf = vim.api.nvim_buf_get_name(0)
+
+    -- @type string
+    local cmd_buf_parent_dir_path = vim.fs.dirname(cmd_buf) or '.'
+
+    -- set last search as file name,
+    -- so it is highlighted/focused upon netrw open
+    vim.cmd [[:let @/=expand("%:t")]] -- [:t] 'tail' (last file), no path
+
+    -- open netrw in left split
+    vim.cmd('Lexplore ' .. cmd_buf_parent_dir_path)
+
+    -------------------------
+    -- AFTER OPENING NETRW --
+    -------------------------
+
+    -- set the variables captured by the closure
+    delete_and_rtn_early = true
+    toggled_netrw_buf_num = vim.api.nvim_get_current_buf()
+
+    -- expand the tree for every parent directory til root is reached
+    local root = u.get_project_root_dir() or vim.fn.getcwd()
+    for dir in vim.fs.parents(cmd_buf) do
+      if dir == root then
+        break
+      end
+      vim.cmd "call netrw#Call('NetrwBrowseUpDir', 1)"
+    end
+
+    -- n<CR> will focus/highlight the last search, which was set above
+    -- zz will center the buffer
+    vim.cmd ':normal n<CR>zz'
+
+    -- handle edge case: quitting netrw with command other than `<leader>e`
+    vim.api.nvim_create_autocmd({ 'WinClosed' }, {
+      group = toggler_group,
+      buffer = toggled_netrw_buf_num, -- pin to the toggled buffer
+      once = true, -- delete after firing, needed because of pin
+      callback = function()
+        delete_and_rtn_early = false
+      end,
+    })
+  end
 end
 
 -- netrw settings
@@ -169,13 +234,12 @@ vim.keymap.set('n', '<leader>e', toggler, { desc = '[E]xpore Files Toggle' })
 You'll need something similar to this for the above to work (or just use the `cwd`).
 
 ```lua
-
 -- @return string|nil
 M.get_project_root_dir = function()
-    return vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw', '.editorconfig' }, {
-        upward = true,
-        stop = vim.loop.os_homedir(), -- non-inclusive, at home dir
-        limit = 1, -- only care about first result, stop searching when found
+    return vim.fs.dirname(vim.fs.find({ '.git', '.editorconfig' }, {
+      upward = true,
+      stop = vim.loop.os_homedir(), -- non-inclusive, at home dir
+      limit = 1, -- only care about first result, stop searching when found
     })[1])
 end
 ```
