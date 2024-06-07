@@ -182,9 +182,9 @@ local netrw_toggler = function()
     -- @type string
     local cmd_buf_parent_dir_path = vim.fs.dirname(cmd_buf) or '.'
 
-    -- set last search as file name,
+    -- set the current file name as the last search,
     -- so it is highlighted/focused upon netrw open
-    vim.cmd [[:let @/=expand("%:t")]] -- [:t] 'tail' (last file), no path
+    vim.cmd [[:let @/=expand("%:t")]]
 
     -- open netrw in left split
     vim.cmd('Lexplore ' .. cmd_buf_parent_dir_path)
