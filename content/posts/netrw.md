@@ -143,32 +143,41 @@ local u = require 'custom.utils'
 
 local netrw_toggler = function()
   -- @type boolean - Tracks if a netrw split has been opened.
-  local delete_and_rtn_early = false
+  local toggled_open = false
 
   -- @type integer - Tracks the buffer number of the opened netrw split.
   local toggled_netrw_buf_num = -1
 
-  -- @type integer - Holds an autocommand to fire upon netrw exit.
-  local toggler_group =
-    vim.api.nvim_create_augroup('toggler_group', { clear = true })
+  -- @type integer - Holds an autocommand that sets toggle state.
+  local toggler_group = vim.api.nvim_create_augroup('toggler_group', { clear = true })
 
   return function()
     -------------------
     -- EARLY RETURN  --
     -------------------
 
-    -- toggle should short circuit if only netrw is open
-    if vim.bo.ft == 'netrw' and #vim.api.nvim_list_wins() == 1 then
+    local only_netrw_window = (vim.bo.ft == 'netrw' and #vim.api.nvim_list_wins() == 1)
+    if only_netrw_window then
+      vim.notify('Must have more than one window open to toggle Netrw', vim.log.levels.WARN)
       return
     end
 
-    -- if already toggled open,
-    -- use the stored state to delete the open buffer
-    if delete_and_rtn_early and toggled_netrw_buf_num ~= -1 then
+    if toggled_open then
+      assert(
+        toggled_netrw_buf_num ~= -1,
+        'Variable toggled_netrw_buf_num must be initalized to valid buffer number.'
+      )
+
       vim.api.nvim_buf_delete(toggled_netrw_buf_num, {})
-      -- because the buffer was deleted,
-      -- the 'WinClosed' autocommand defined below will
-      -- set `delete_and_rtn_early=false`
+
+      assert(
+        toggled_open == false,
+        'The WinClosed autocommand on toggle_group should have set toggled_open=false.'
+      )
+      assert(
+        #vim.api.nvim_get_autocmds { group = toggler_group } == 0,
+        'The single autocommand on toggler_group should have been deleted after firing.'
+      )
       return
     end
 
@@ -182,9 +191,8 @@ local netrw_toggler = function()
     -- @type string
     local cmd_buf_parent_dir_path = vim.fs.dirname(cmd_buf) or '.'
 
-    -- set the current file name as the last search,
-    -- so it is highlighted/focused upon netrw open
-    vim.cmd [[:let @/=expand("%:t")]]
+    -- set last search as file name, so it is highlighted/focused upon netrw open
+    vim.cmd [[:let @/=expand("%:t")]] -- [:t] 'tail' (last file), no path
 
     -- open netrw in left split
     vim.cmd('Lexplore ' .. cmd_buf_parent_dir_path)
@@ -194,10 +202,10 @@ local netrw_toggler = function()
     -------------------------
 
     -- set the variables captured by the closure
-    delete_and_rtn_early = true
+    toggled_open = true
     toggled_netrw_buf_num = vim.api.nvim_get_current_buf()
 
-    -- expand the tree for every parent directory til root is reached
+    -- expand the tree upwards for every parent directory til root is reached
     local root = u.get_project_root_dir() or vim.fn.getcwd()
     for dir in vim.fs.parents(cmd_buf) do
       if dir == root then
@@ -216,7 +224,7 @@ local netrw_toggler = function()
       buffer = toggled_netrw_buf_num, -- pin to the toggled buffer
       once = true, -- delete after firing, needed because of pin
       callback = function()
-        delete_and_rtn_early = false
+        toggled_open = false
       end,
     })
   end
