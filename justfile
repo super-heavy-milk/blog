@@ -1,4 +1,4 @@
-# list recipies
+# list recipes
 default:
     @just --list
 
@@ -6,7 +6,7 @@ default:
 dev:
     hugo server -D --navigateToChanged
 
-# run a hot reload preivew of what the live site will look like
+# run a hot reload preview of what the live site will look like
 preview:
     hugo server --navigateToChanged
 
@@ -22,12 +22,10 @@ lint:
 fmt-justfile:
     just --fmt --unstable
 
-# resize an image e.g. 'just resize input_img.jpeg output_img.jpeg 100'
+# resize an image e.g. 'just resize input_image.jpeg output_image.jpeg 100'
 resize input output resize_percent:
-    magick \
-        -verbose \
+    magick -verbose \
         '{{ justfile_directory() }}/static/{{ input }}' \
         -filter LanczosSharp \
         -distort Resize {{ resize_percent }}% \
         '{{ justfile_directory() }}/static/{{ output }}'
-
