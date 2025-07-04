@@ -238,3 +238,91 @@ package-lock.json
 bower_components
 
 ```
+
+### .gitconfig
+
+This one is pretty self-explanatory.
+
+Below is mine, currently. A lot of the settings are pulled from these two rather excellent articles:
+
+- [how git core devs configure git](https://web.archive.org/web/20250623214103/https://blog.gitbutler.com/how-git-core-devs-configure-git/)
+- [10 git aliases for faster and productive git workflow](https://web.archive.org/web/20250325045559/https://snyk.io/blog/10-git-aliases-for-faster-and-productive-git-workflow/)
+
+Note that mine is... messier, especially the aliases.
+
+```toml
+[user]
+	name = Tyler Lawton
+	email = <redacted>
+
+[core]
+	autocrlf = input
+	pager = delta
+	#excludesFile = ~/.config/git/ignore  # global ignore file
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	#side-by-side = true
+
+[merge]
+	conflictstyle = diff3
+	tool = nvimdiff
+
+[diff]
+	colorMoved = default
+	renames = true
+	mnemonicPrefix = true
+	algorithm = histogram
+
+[commit]
+	verbose = true
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	ff = only
+
+[tag]
+	sort = version:refname
+
+[branch]
+	sort = -committerdate
+
+[rerere]
+	enbabled = true
+	autoupdate = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true # look into this more
+
+[alias]
+	s = status --untracked-files=no
+	co = checkout
+	cob = checkout -b
+	del = branch -D
+	save = !git add -u && git commit
+	c = commit
+	p = push
+	aa = add -u
+	undo = reset HEAD~1 --mixed
+	res = !git reset --hard
+	done = !git push origin HEAD
+	#br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	br = !git branch --format='%(HEAD)»%(color:yellow)%(refname:short)%(color:reset)»%(contents:subject)%(color:green)»(%(committerdate:relative))»%(authorname)' --sort=-committerdate | column -t -s '»'
+	#lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
+	lgg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
+	lg = !git log --pretty=format:'%C(magenta)%h%Creset»%C(red)»%d%Creset %s %C(dim green)»%cr»%an' --abbrev-commit -30 | column -t -s '»'
+	df = difftool --no-prompt
+	file-hist = log -p -- %f
+	latest-version = !git -c 'versionsort.suffix=-'' ls-remote --exit-code --refs --sort='version:refname' --tags `git config --get remote.origin.url` '*.*.*' 2> /dev/null | tail --lines=1 | cut -d '/' -f 3
+	load-unstaged = !${EDITOR} `git diff --name-only`
+	commits-from-master-missing-in-develop = !git fetch --quiet && git log origin/develop..origin/master --oneline --no-merges
+	commits-from-develop-missing-in-HEAD = !git fetch --quiet && git log HEAD..origin/develop --oneline --no-merges
+	graph = log --all --graph --pretty=format:'%C(magenta)%h%Creset %C(red) %d%Creset %s %C(dim green) %cr %an'
+```
