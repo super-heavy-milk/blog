@@ -12,7 +12,7 @@ tags:
   - gradle
 ---
 
-This is a nice hack taken from [Jamie Tanna](https://www.jvt.me/posts/2020/05/15/gradle-spotless/) on her blog.
+This is a nice hack taken from [Jamie Tanna](https://www.jvt.me/posts/2020/05/15/gradle-spotless/) on his blog.
 
 You can create top-level Gradle tasks using [initialization scripts](https://docs.gradle.org/current/userguide/init_scripts.html) to apply common actions anytime Gradle is ran.
 
